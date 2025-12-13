@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題 第6週</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 確認問題 第6週</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3">第3回</option>
+            <option value="4">第4回</option>
+            <option value="5">第5回</option>
+            <option value="6" selected>第6回</option>
+            <option value="7">第7回</option>
+            <option value="8">第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11">第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. セントラルドグマ</h2>
+        <div class="q-text">
+            1. DNAからRNAを合成する段階を <input type="text" id="q1-1"> という。<br>
+            2. RNAの情報からタンパク質を合成する段階を <input type="text" id="q1-2"> という。<br>
+            3. DNAやmRNAでは、情報は <input type="text" id="q1-3"> として書き込まれている。<br>
+            4. タンパク質では、その情報は <input type="text" id="q1-4"> 配列に変換されている。
+        </div>
+        <button onclick="checkQ1()">答え合わせ</button>
+        <div id="res1" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. 遺伝情報の発現（転写）</h2>
+        <div class="q-text">
+            1. DNAの長さやゲノムサイズを表す単位は <input type="text" id="q2-1"> (bp) である。<br>
+            2. 転写の開始点と方向の情報を持つDNA配列を <input type="text" id="q2-2"> という。<br>
+            3. 真核生物の[2.の答]には、 <input type="text" id="q2-3"> とよばれる「TATAAAA」の配列が含まれることが多い。<br>
+            4. 転写を行う酵素は <input type="text" id="q2-4"> ポリメラーゼである。
+        </div>
+        <button onclick="checkQ2()">答え合わせ</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題3. RNAプロセシング</h2>
+        <div class="q-text">
+            1. 転写直後のRNAから、タンパク質をコードしない <input type="text" id="q3-1"> という領域を取り除く。<br>
+            2. この取り除く過程を <input type="text" id="q3-2"> という。<br>
+            3. 残った、タンパク質をコードする領域を <input type="text" id="q3-3"> という。
+        </div>
+        <button onclick="checkQ3()">答え合わせ</button>
+        <div id="res3" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題4. 翻訳の仕組み</h2>
+        <div class="q-text">
+            1. mRNA上の連続した3つの塩基を <input type="text" id="q4-1"> という。<br>
+            2. アミノ酸を運ぶRNAを <input type="text" id="q4-2"> という。<br>
+            3. [2.の答]が持つ、mRNAの塩基配列と相補的に結合する部分を <input type="text" id="q4-3"> という。<br>
+            4. 翻訳の開始を指令する配列を <input type="text" id="q4-4"> コドンという。
+        </div>
+        <button onclick="checkQ4()">答え合わせ</button>
+        <div id="res4" class="result"></div>
+    </div>
+
+    <script>
+        function checkQ1() {
+            const v1 = document.getElementById('q1-1').value.trim();
+            const v2 = document.getElementById('q1-2').value.trim();
+            const v3 = document.getElementById('q1-3').value.trim();
+            const v4 = document.getElementById('q1-4').value.trim();
+            showResult('res1', (v1 === '転写' && v2 === '翻訳' && v3 === '塩基配列' && v4 === 'アミノ酸'), ['転写', '翻訳', '塩基配列', 'アミノ酸']);
+        }
+
+        function checkQ2() {
+            const v1 = document.getElementById('q2-1').value.trim();
+            const v2 = document.getElementById('q2-2').value.trim();
+            const v3 = document.getElementById('q2-3').value.trim();
+            const v4 = document.getElementById('q2-4').value.trim().toUpperCase();
+            showResult('res2', (v1 === '塩基対' && v2 === 'プロモーター' && v3 === 'TATAボックス' && v4 === 'RNA'), ['塩基対', 'プロモーター', 'TATAボックス', 'RNA']);
+        }
+
+        function checkQ3() {
+            const v1 = document.getElementById('q3-1').value.trim();
+            const v2 = document.getElementById('q3-2').value.trim();
+            const v3 = document.getElementById('q3-3').value.trim();
+            showResult('res3', (v1 === 'イントロン' && v2 === 'スプライシング' && v3 === 'エキソン'), ['イントロン', 'スプライシング', 'エキソン']);
+        }
+
+        function checkQ4() {
+            const v1 = document.getElementById('q4-1').value.trim();
+            const v2 = document.getElementById('q4-2').value.trim();
+            const v3 = document.getElementById('q4-3').value.trim();
+            const v4 = document.getElementById('q4-4').value.trim();
+            showResult('res4', (v1 === 'コドン' && v2 === 'tRNA' && v3 === 'アンチコドン' && v4 === '開始'), ['コドン', 'tRNA', 'アンチコドン', '開始']);
+        }
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>

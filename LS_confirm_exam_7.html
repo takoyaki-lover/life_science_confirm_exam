@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題 74週</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 確認問題 第7週</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3">第3回</option>
+            <option value="4">第4回</option>
+            <option value="5">第5回</option>
+            <option value="6">第6回</option>
+            <option value="7" selected>第7回</option>
+            <option value="8">第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11">第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. 遺伝子組換えの基礎</h2>
+        <div class="q-text">
+            1. 日本国内で遺伝子組換え生物を扱う実験は、 <input type="text" id="q1-1"> 法の規則に従って実施される。<br>
+            2. プラスミドやウイルスのように、遺伝子の運び屋として利用されるものを <input type="text" id="q1-2"> という。<br>
+            3. プラスミドには、ゲノムDNAとは独立して複製するために <input type="text" id="q1-3"> (ori) とよばれる配列が含まれる。
+        </div>
+        <button onclick="checkQ1()">答え合わせ</button>
+        <div id="res1" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. DNAを切断する酵素</h2>
+        <div class="q-text">
+            1. DNAを特定の位置で切るために利用する酵素を <input type="text" id="q2-1"> という。<br>
+            2. 多くの[1.の答]が認識する配列は、前から読んでも後ろから読んでも同じ <input type="text" id="q2-2"> 配列になっている。<br>
+            3. 切断されたDNAの末端で、1本鎖が突き出した部分を <input type="text" id="q2-3"> 末端という。
+        </div>
+        <button onclick="checkQ2()">答え合わせ</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題3. PCR（ポリメラーゼ連鎖反応）</h2>
+        <div class="q-text">
+            1. 増幅したい部分の両端に結合させる短い核酸を <input type="text" id="q3-1"> という。<br>
+            2. PCRで使用するDNAポリメラーゼは、100℃でも失活しない <input type="text" id="q3-2"> 菌由来のものを用いる。<br>
+            3. DNA合成の基質（材料）として反応系に含まれる4種類のヌクレオチドを <input type="text" id="q3-3"> という。<br>
+            4. PCRのサイクルにおいて、DNAを熱変性させる温度は、約 <input type="text" id="q3-4"> ℃である。
+        </div>
+        <button onclick="checkQ3()">答え合わせ</button>
+        <div id="res3" class="result"></div>
+    </div>
+
+    <script>
+        function checkQ1() {
+            const v1 = document.getElementById('q1-1').value.trim();
+            const v2 = document.getElementById('q1-2').value.trim();
+            const v3 = document.getElementById('q1-3').value.trim();
+            showResult('res1', (v1 === 'カルタヘナ' && v2 === 'ベクター' && v3 === '複製起点'), ['カルタヘナ', 'ベクター', '複製起点']);
+        }
+
+        function checkQ2() {
+            const v1 = document.getElementById('q2-1').value.trim();
+            const v2 = document.getElementById('q2-2').value.trim();
+            const v3 = document.getElementById('q2-3').value.trim();
+            showResult('res2', (v1 === '制限酵素' && v2 === '回文' && v3 === '突出'), ['制限酵素', '回文', '突出']);
+        }
+
+        function checkQ3() {
+            const v1 = document.getElementById('q3-1').value.trim();
+            const v2 = document.getElementById('q3-2').value.trim();
+            const v3 = document.getElementById('q3-3').value.trim();
+            const v4 = document.getElementById('q3-4').value.trim();
+            showResult('res3', (v1 === 'プライマー' && v2 === '好熱' && v3 === 'dNTP' && v4 === '95'), ['プライマー', '好熱', 'dNTP', '95']);
+        }
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>

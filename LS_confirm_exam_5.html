@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題 第5週</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 確認問題 第5週</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3">第3回</option>
+            <option value="4">第4回</option>
+            <option value="5" selected>第5回</option>
+            <option value="6">第6回</option>
+            <option value="7">第7回</option>
+            <option value="8">第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11">第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. 細胞周期</h2>
+        <div class="q-text">
+            1. 細胞周期のうち、分裂期（M期）以外の時期を <input type="text" id="q1-1"> とよぶ。<br>
+            2. 複製された直後の、2本の同じ染色体のセットを <input type="text" id="q1-2"> という。<br>
+            3. 終期には、染色体がほどけて核膜の <input type="text" id="q1-3"> が起きる。<br>
+            4. DNA複製が起きている時期は <input type="text" id="q1-4"> 期である。
+        </div>
+        <button onclick="checkQ1()">答え合わせ</button>
+        <div id="res1" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. 細胞分裂</h2>
+        <div class="q-text">
+            1. 分裂の際、両極の <input type="text" id="q2-1"> から伸びた微小管が紡錘体を形成する。<br>
+            2. 姉妹染色分体が結合したセントロメアにある <input type="text" id="q2-2"> という部分に微小管が結合する。<br>
+            3. M期の <input type="text" id="q2-3"> 期になると、染色体は赤道面に並ぶ。
+        </div>
+        <button onclick="checkQ2()">答え合わせ</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題5. DNA複製の開始</h2>
+        <div class="q-text">
+            1. 複製が開始されるDNA上の位置を <input type="text" id="q5-1"> という。<br>
+            2. 2本鎖を開裂させる活性を持つ酵素は <input type="text" id="q5-2"> である。<br>
+            3. DNAがほどけて開いている部分は、その形状から複製 <input type="text" id="q5-3"> とよばれる。
+        </div>
+        <button onclick="checkQ5()">答え合わせ</button>
+        <div id="res5" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題6. DNAポリメラーゼの働き</h2>
+        <div class="q-text">
+            1. DNA合成の材料となる4種類のヌクレオチドを総称して <input type="text" id="q6-1"> とよぶ。<br>
+            2. DNA合成の開始点となる短いRNA鎖を <input type="text" id="q6-2"> という。<br>
+            3. リーディング鎖と逆向きに複製される鎖を <input type="text" id="q6-3"> 鎖とよび、そこで作られる短いDNA断片を <input type="text" id="q6-4"> という。
+        </div>
+        <button onclick="checkQ6()">答え合わせ</button>
+        <div id="res6" class="result"></div>
+    </div>
+
+    <script>
+        function checkQ1() {
+            const v1 = document.getElementById('q1-1').value.trim();
+            const v2 = document.getElementById('q1-2').value.trim();
+            const v3 = document.getElementById('q1-3').value.trim();
+            const v4 = document.getElementById('q1-4').value.trim().toUpperCase();
+            const isCorrect = (v1 === '間期' && v2 === '姉妹染色分体' && v3 === '再形成' && (v4 === 'S' || v4 === 'S期'));
+            showResult('res1', isCorrect, ['間期', '姉妹染色分体', '再形成', 'S期']);
+        }
+
+        function checkQ2() {
+            const v1 = document.getElementById('q2-1').value.trim();
+            const v2 = document.getElementById('q2-2').value.trim();
+            const v3 = document.getElementById('q2-3').value.trim();
+            showResult('res2', (v1 === '中心体' && v2 === '動原体' && v3 === '中'), ['中心体', '動原体', '中']);
+        }
+
+        function checkQ5() {
+            const v1 = document.getElementById('q5-1').value.trim();
+            const v2 = document.getElementById('q5-2').value.trim();
+            const v3 = document.getElementById('q5-3').value.trim();
+            showResult('res5', (v1 === '複製起点' && v2 === 'ヘリカーゼ' && v3 === 'フォーク'), ['複製起点', 'ヘリカーゼ', 'フォーク']);
+        }
+
+        function checkQ6() {
+            const v1 = document.getElementById('q6-1').value.trim();
+            const v2 = document.getElementById('q6-2').value.trim();
+            const v3 = document.getElementById('q6-3').value.trim();
+            const v4 = document.getElementById('q6-4').value.trim();
+            showResult('res6', (v1 === 'dNTP' && v2 === 'プライマー' && v3 === 'ラギング' && v4 === '岡崎フラグメント'), ['dNTP', 'プライマー', 'ラギング', '岡崎フラグメント']);
+        }
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>

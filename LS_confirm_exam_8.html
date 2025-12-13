@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題 第8週</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 確認問題 第8週</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3">第3回</option>
+            <option value="4">第4回</option>
+            <option value="5">第5回</option>
+            <option value="6">第6回</option>
+            <option value="7">第7回</option>
+            <option value="8" selected>第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11">第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. ゲノム編集技術</h2>
+        <div class="q-text">
+            1. 生物のゲノムを改変する技術を <input type="text" id="q1-1"> という。<br>
+            2. 新たに開発された <input type="text" id="q1-2"> 法は、発現ベクターの作製が容易で効率も良い。<br>
+            3. 標的となる遺伝子の機能を失わせる操作を特に <input type="text" id="q1-3"> とよぶ。
+        </div>
+        <button onclick="checkQ1()">答え合わせ</button>
+        <div id="res1" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. メンデルの法則</h2>
+        <div class="q-text">
+            1. メンデルは、 <input type="text" id="q2-1"> を用いて遺伝の仕組みを解析した。<br>
+            2. 自家受粉を繰り返しても同じ形質しか現れない系統を <input type="text" id="q2-2"> という。<br>
+            3. 顕性の純系と潜性の純系を交配させた <input type="text" id="q2-3"> では、全て顕性の形質が現れる。<br>
+            4. 対になっている形質を <input type="text" id="q2-4"> 形質という。
+        </div>
+        <button onclick="checkQ2()">答え合わせ</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題3. 無性生殖と有性生殖</h2>
+        <div class="q-text">
+            1. 無性生殖には、栄養生殖、 <input type="text" id="q3-1"> 、出芽がある。<br>
+            2. 配偶子が合体して新個体をつくる方法を <input type="text" id="q3-2"> 生殖という。<br>
+            3. 生物の持つ全遺伝情報の1セットを <input type="text" id="q3-3"> という。
+        </div>
+        <button onclick="checkQ3()">答え合わせ</button>
+        <div id="res3" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題4. 減数分裂</h2>
+        <div class="q-text">
+            1. 配偶子形成の際、染色体数が半分になる分裂を <input type="text" id="q4-1"> という。<br>
+            2. 減数分裂の第一分裂前期には、相同染色体どうしが対合して <input type="text" id="q4-2"> 染色体が形成される。<br>
+            3. ヒトの体細胞の染色体数は46本（2n）だが、精子や卵では <input type="text" id="q4-3"> 本（n）になる。
+        </div>
+        <button onclick="checkQ4()">答え合わせ</button>
+        <div id="res4" class="result"></div>
+    </div>
+
+    <script>
+        function checkQ1() {
+            const v1 = document.getElementById('q1-1').value.trim();
+            const v2 = document.getElementById('q1-2').value.trim();
+            const v3 = document.getElementById('q1-3').value.trim();
+            showResult('res1', (v1 === 'ゲノム編集' && v2.toUpperCase() === 'CRISPR/CAS9' && v3 === 'ノックアウト'), ['ゲノム編集', 'CRISPR/Cas9', 'ノックアウト']);
+        }
+
+        function checkQ2() {
+            const v1 = document.getElementById('q2-1').value.trim();
+            const v2 = document.getElementById('q2-2').value.trim();
+            const v3 = document.getElementById('q2-3').value.trim();
+            const v4 = document.getElementById('q2-4').value.trim();
+            showResult('res2', (v1 === 'エンドウ' && v2 === '純系' && v3 === '雑種第1代' && v4 === '対立'), ['エンドウ', '純系', '雑種第1代', '対立']);
+        }
+
+        function checkQ3() {
+            const v1 = document.getElementById('q3-1').value.trim();
+            const v2 = document.getElementById('q3-2').value.trim();
+            const v3 = document.getElementById('q3-3').value.trim();
+            showResult('res3', (v1 === '分裂' && v2 === '有性' && v3 === 'ゲノム'), ['分裂', '有性', 'ゲノム']);
+        }
+
+        function checkQ4() {
+            const v1 = document.getElementById('q4-1').value.trim();
+            const v2 = document.getElementById('q4-2').value.trim();
+            const v3 = document.getElementById('q4-3').value.trim();
+            showResult('res4', (v1 === '減数分裂' && v2 === '二価' && v3 === '23'), ['減数分裂', '二価', '23']);
+        }
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>

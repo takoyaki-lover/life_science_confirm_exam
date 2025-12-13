@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題 第3週</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 確認問題 第3週</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3" selected>第3回</option>
+            <option value="4">第4回</option>
+            <option value="5">第5回</option>
+            <option value="6">第6回</option>
+            <option value="7">第7回</option>
+            <option value="8">第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11">第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. 細胞小器官と物質輸送</h2>
+        <div class="q-text">
+            1. 細胞小器官のうち、核・ミトコンドリア・葉緑体は <input type="text" id="q1-1"> の生体膜で包まれている。<br>
+            2. 小胞体の一部がくびれて輸送小胞になり、ゴルジ体と <input type="text" id="q1-2"> することで物質が運ばれる。<br>
+            3. 最終的に、小胞が細胞膜と融合し、内部の物質が細胞外に <input type="text" id="q1-3"> される。
+        </div>
+        <button onclick="checkQ1()">答え合わせ</button>
+        <div id="res1" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. DNAの構造と凝縮</h2>
+        <div class="q-text">
+            1. DNAが <input type="text" id="q2-1"> というタンパク質に巻き付いた構造の基本単位をヌクレオソームとよぶ。<br>
+            2. ヌクレオソームが連なり、さらに折りたたまれて凝縮した構造を <input type="text" id="q2-2"> という。
+        </div>
+        <button onclick="checkQ2()">答え合わせ</button>
+        <div id="res2" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題3. 生体膜と物質の透過</h2>
+        <div class="q-text">
+            1. 特定の物質を膜透過させるタンパク質のうち、<input type="text" id="q3-1"> とよばれるシグナル分子で開閉するものを[1.の答]依存性チャネルという。<br>
+            2. ナトリウムポンプなどはエネルギーを使い、 <input type="text" id="q3-2"> に逆らって物質を透過させる。<br>
+            3. このようなエネルギーを必要とする輸送を <input type="text" id="q3-3"> 輸送という。
+        </div>
+        <button onclick="checkQ3()">答え合わせ</button>
+        <div id="res3" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題4. 細胞骨格</h2>
+        <div class="q-text">
+            1. 細胞骨格のうち、直径が約25nmでチューブリンからなるものを <input type="text" id="q4-1"> という。<br>
+            2. 細胞骨格は、タンパク質が <input type="text" id="q4-2"> することで長い繊維状の構造をとる。<br>
+            3. 細胞骨格を足場として動くタンパク質を <input type="text" id="q4-3"> タンパク質という。
+        </div>
+        <button onclick="checkQ4()">答え合わせ</button>
+        <div id="res4" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題5. モータータンパク質</h2>
+        <div class="q-text">
+            1. アクチンフィラメントの上を動くモータータンパク質は <input type="text" id="q5-1"> である。<br>
+            2. 微小管の上を動くモータータンパク質は、ダイニンと <input type="text" id="q5-2"> である。<br>
+            3. 細胞骨格の中で、対応するモータータンパク質が存在しないのは <input type="text" id="q5-3"> フィラメントである。
+        </div>
+        <button onclick="checkQ5()">答え合わせ</button>
+        <div id="res5" class="result"></div>
+    </div>
+
+    <script>
+        function checkQ1() {
+            const v1 = document.getElementById('q1-1').value.trim();
+            const v2 = document.getElementById('q1-2').value.trim();
+            const v3 = document.getElementById('q1-3').value.trim();
+            showResult('res1', (v1 === '二重' && v2 === '融合' && v3 === '分泌'), ['二重', '融合', '分泌']);
+        }
+
+        function checkQ2() {
+            const v1 = document.getElementById('q2-1').value.trim();
+            const v2 = document.getElementById('q2-2').value.trim();
+            showResult('res2', (v1 === 'ヒストン' && v2 === 'クロマチン'), ['ヒストン', 'クロマチン']);
+        }
+
+        function checkQ3() {
+            const v1 = document.getElementById('q3-1').value.trim();
+            const v2 = document.getElementById('q3-2').value.trim();
+            const v3 = document.getElementById('q3-3').value.trim();
+            showResult('res3', (v1 === 'リガンド' && v2 === '濃度勾配' && v3 === '能動'), ['リガンド', '濃度勾配', '能動']);
+        }
+
+        function checkQ4() {
+            const v1 = document.getElementById('q4-1').value.trim();
+            const v2 = document.getElementById('q4-2').value.trim();
+            const v3 = document.getElementById('q4-3').value.trim();
+            showResult('res4', (v1 === '微小管' && v2 === '重合' && v3 === 'モーター'), ['微小管', '重合', 'モーター']);
+        }
+
+        function checkQ5() {
+            const v1 = document.getElementById('q5-1').value.trim();
+            const v2 = document.getElementById('q5-2').value.trim();
+            const v3 = document.getElementById('q5-3').value.trim();
+            showResult('res5', (v1 === 'ミオシン' && v2 === 'キネシン' && v3 === '中間径'), ['ミオシン', 'キネシン', '中間径']);
+        }
+    </script>
+    <script src="./scripts/main.js"></script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>生命科学 確認問題クイズ（第11週）</title>
+    <style>
+        textarea { width: calc(100% - 25px); height: 80px; padding: 10px; border: 2px solid #ddd; border-radius: 4px; font-size: 16px; margin: -15px auto 10px; resize: vertical; }
+        .result { margin-top: 15px; font-weight: bold; padding: 12px; border-radius: 6px; display: none; background-color: #e9f5ee; border: 1px solid #b7e4c7; color: #1b4332; }
+        .ans-label { color: #d90429; font-weight: bold; }
+        .kaisetsu {margin: 0 0 10px;}
+    </style>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <h1>生命科学 第11週 確認問題</h1>
+    <p class="select-p">確認問題選択：
+        <select id="exam-num">
+            <option value="0">ホーム</option>
+            <option value="1">第1回</option>
+            <option value="2">第2回</option>
+            <option value="3">第3回</option>
+            <option value="4">第4回</option>
+            <option value="5">第5回</option>
+            <option value="6">第6回</option>
+            <option value="7">第7回</option>
+            <option value="8">第8回</option>
+            <option value="9">第9回</option>
+            <option value="10">第10回</option>
+            <option value="11" selected>第11回</option>
+        </select>
+    </p>
+
+    <div class="question-block">
+        <h2>問題1. 初期化（リプログラミング）とは</h2>
+        <div class="q-text">
+            ガードン博士や山中博士の研究キーワードである「初期化」とはどのようなことか、簡潔に説明しなさい。
+        </div>
+        <textarea id="q1" placeholder="キーワード：分化、体細胞、多能性"></textarea>
+        <button onclick="showAns('res1')">解答例を表示</button>
+        <div id="res1" class="result">
+            <p class="kaisetsu"><span class="ans-label">解答例：</span> いったん分化した体細胞や体細胞由来の細胞核に、再び分化の多能性を与えること。</p>
+            <button class="close-btn" onclick="closeAns('res1')">閉じる</button>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題2. 倫理上の問題の回避</h2>
+        <div class="q-text">
+            ES細胞と比べ、iPS細胞はなぜ倫理上の問題を回避できると考えられるか、簡潔に説明しなさい。
+        </div>
+        <textarea id="q2" placeholder="キーワード：胚盤胞、生命、体細胞"></textarea>
+        <button onclick="showAns('res2')">解答例を表示</button>
+        <div id="res2" class="result">
+            <p class="kaisetsu"><span class="ans-label">解答例：</span> ES細胞は生命の萌芽である胚盤胞を破壊して作る必要があるが、iPS細胞は（皮膚などの）体細胞から作製できるため、胚を破棄する必要がないから。</p>
+            <button class="close-btn" onclick="closeAns('res2')">閉じる</button>
+        </div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題3. 拒絶反応の回避</h2>
+        <div class="q-text">
+            移植医療において、iPS細胞がES細胞よりも拒絶反応を回避しやすいのはなぜか、簡潔に説明しなさい。
+        </div>
+        <textarea id="q3" placeholder="キーワード：患者本人、由来"></textarea>
+        <button onclick="showAns('res3')">解答例を表示</button>
+        <div id="res3" class="result">
+            <p class="kaisetsu"><span class="ans-label">解答例：</span> ES細胞は他人に由来する細胞であるが、iPS細胞は移植を受ける患者本人の細胞から作製できるため、自己免疫による拒絶反応が起こる可能性が低いから。</p>
+            <button class="close-btn" onclick="closeAns('res3')">閉じる</button>
+        </div>
+    </div>
+
+    <script>
+        function showAns(id) {
+            document.getElementById(id).style.display = "block";
+        }
+        function closeAns(id) {
+            document.getElementById(id).style.display = "none";
+        }
+    </script>
+    <script src="./scripts/transfer.js"></script>
+
+</body>
+</html>
