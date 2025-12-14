@@ -12,3 +12,13 @@ document.getElementById("exam-num").addEventListener("change", function() {
 		location.href = "./home.html"
 	}
 })
+
+document.getElementById("exam-num1").addEventListener("change", function() {
+	num = document.getElementById("exam-num1").value;
+	if (num != 0) {
+		location.href = `./LS_confirm_exam_${num}.html`;
+	}
+	else {
+		location.href = "./home.html"
+	}
+})
