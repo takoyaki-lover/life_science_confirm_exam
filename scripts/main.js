@@ -15,3 +15,9 @@ function closeResult(elementId) {
     const res = document.getElementById(elementId);
     res.style.display = "none";
 }
+
+let input = document.getElementsByTagName("input")
+for (i = 0; i < input.length; i ++) {
+    input[i].autocomplete = "off";
+    console.log(i);
+}
