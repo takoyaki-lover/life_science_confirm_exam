@@ -30,7 +30,7 @@
         <h2>問題1. ゲノム編集技術</h2>
         <div class="q-text">
             1. 生物のゲノムを改変する技術を <input type="text" id="q1-1"> という。<br>
-            2. 新たに開発された <input type="text" id="q1-2"> 法は、発現ベクターの作製が容易で効率も良い。<br>
+            2. 新たに開発されたCRISPR/Cas9法は、発現ベクターの作製が容易で効率も良い。いずれの方法もDNA2本鎖を切断した後、細胞の <input type="text" id="q1-2"> 機構を利用してゲノムを改変する。<br>
             3. 標的となる遺伝子の機能を失わせる操作を特に <input type="text" id="q1-3"> とよぶ。
         </div>
         <button onclick="checkQ1()">答え合わせ</button>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="question-block">
-        <h2>問題2. メンデルの法則</h2>
+        <h2>問題2. メンデルの法則 p.82</h2>
         <div class="q-text">
             1. メンデルは、 <input type="text" id="q2-1"> を用いて遺伝の仕組みを解析した。<br>
             2. 自家受粉を繰り返しても同じ形質しか現れない系統を <input type="text" id="q2-2"> という。<br>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="question-block">
-        <h2>問題3. 無性生殖と有性生殖</h2>
+        <h2>問題3. 生殖 p.82</h2>
         <div class="q-text">
             1. 無性生殖には、栄養生殖、 <input type="text" id="q3-1"> 、出芽がある。<br>
             2. 配偶子が合体して新個体をつくる方法を <input type="text" id="q3-2"> 生殖という。<br>
@@ -61,11 +61,14 @@
     </div>
 
     <div class="question-block">
-        <h2>問題4. 減数分裂</h2>
+        <h2>問題4. 有性生殖の分裂 p.84</h2>
         <div class="q-text">
             1. 配偶子形成の際、染色体数が半分になる分裂を <input type="text" id="q4-1"> という。<br>
             2. 減数分裂の第一分裂前期には、相同染色体どうしが対合して <input type="text" id="q4-2"> 染色体が形成される。<br>
-            3. ヒトの体細胞の染色体数は46本（2n）だが、精子や卵では <input type="text" id="q4-3"> 本（n）になる。
+            3. ヒトの体細胞の染色体数は46本（2n）だが、精子や卵では <input type="text" id="q4-3"> 本（n）になる。<br>
+            4. 有性生殖する動物で、生殖のために分化した細胞を <input type="text" id="q4-4"> という。<br>
+            5. [4の答え] から <input type="text" id="q4-5"> と呼ばれる生殖のための特別な細胞が作られ、 [ 5 ] が合体して新しい個体となる。<br>
+            6. ヒトの雄性 [5の答え] が <input type="text" id="q4-6"> であり、雌性 [5の答え] が <input type="text" id="q4-7"> である。
         </div>
         <button onclick="checkQ4()">答え合わせ</button>
         <div id="res4" class="result"></div>
@@ -93,7 +96,7 @@
             const v1 = document.getElementById('q1-1').value.trim();
             const v2 = document.getElementById('q1-2').value.trim();
             const v3 = document.getElementById('q1-3').value.trim();
-            showResult('res1', (v1 === 'ゲノム編集' && v2.toUpperCase() === 'CRISPR/CAS9' && v3 === 'ノックアウト'), ['ゲノム編集', 'CRISPR/Cas9', 'ノックアウト']);
+            showResult('res1', (v1 === 'ゲノム編集' && v2 === 'DNA修復' && v3 === 'ノックアウト'), ['ゲノム編集', 'DNA修復', 'ノックアウト']);
         }
 
         function checkQ2() {
@@ -115,7 +118,11 @@
             const v1 = document.getElementById('q4-1').value.trim();
             const v2 = document.getElementById('q4-2').value.trim();
             const v3 = document.getElementById('q4-3').value.trim();
-            showResult('res4', (v1 === '減数分裂' && v2 === '二価' && v3 === '23'), ['減数分裂', '二価', '23']);
+            const v4 = document.getElementById('q4-4').value.trim();
+            const v5 = document.getElementById('q4-5').value.trim();
+            const v6 = document.getElementById('q4-6').value.trim();
+            const v7 = document.getElementById('q4-7').value.trim();
+            showResult('res4', (v1 === '減数分裂' && v2 === '二価' && v3 === '23' && v4 === "生殖細胞" && v5 === "配偶子" && v6 === "精子" && v7 === "卵"), ['減数分裂', '二価', '23', "生殖細胞", "配偶子", "精子", "卵"]);
         }
     </script>
     <script src="./scripts/main.js"></script>

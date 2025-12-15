@@ -27,7 +27,7 @@
     </p>
 
     <div class="question-block">
-        <h2>問題1. 配偶者と受精</h2>
+        <h2>問題1. 配偶者と受精 p.89</h2>
         <div class="q-text">
             1. 精子の頭部には、精核のほかに酵素を含む <input type="text" id="q1-1"> がある。<br>
             2. 精子の膜と[1.の答]の外膜が融合し、内容物が放出される過程を <input type="text" id="q1-2"> 反応という。<br>
@@ -38,18 +38,18 @@
     </div>
 
     <div class="question-block">
-        <h2>問題2. ウニの初期発生</h2>
+        <h2>問題2. ウニの初期発生 p.91</h2>
         <div class="q-text">
             1. ウニの発生で、陥入が始まる地点を <input type="text" id="q2-1"> という。<br>
-            2. 陥入によって形成される袋状の構造を <input type="text" id="q2-2"> といい、この時期の胚を <input type="text" id="q2-3"> 胚とよぶ。<br>
-            3. 将来、筋肉や骨に分化するのは <input type="text" id="q2-4"> 胚葉である。
+            2. 陥入によって形成される袋状の構造を <input type="text" id="q2-2"> といい、この時期の胚を [ 2 ] 胚とよぶ。<br>
+            3. 将来、筋肉や骨に分化するのは <input type="text" id="q2-3"> 胚葉である。
         </div>
         <button onclick="checkQ2()">答え合わせ</button>
         <div id="res2" class="result"></div>
     </div>
 
     <div class="question-block">
-        <h2>問題3. 哺乳類（ヒト）の発生</h2>
+        <h2>問題3. 哺乳類（ヒト）の発生 p.94</h2>
         <div class="q-text">
             1. ヒトでは、卵管の上部で受精したのち、胚は卵割しながら下降し、約7日で子宮に <input type="text" id="q3-1"> する。<br>
             2. 128細胞期の胚は、内部にある <input type="text" id="q3-2"> と、周囲の栄養外胚葉からなる。
@@ -59,7 +59,7 @@
     </div>
 
     <div class="question-block">
-        <h2>問題4. 分化と誘導</h2>
+        <h2>問題4. 分化と誘導 p.96</h2>
         <div class="q-text">
             1. 近接した領域の影響によって細胞の運命が決定される現象を <input type="text" id="q4-1"> という。<br>
             2. [1.の答]の能力を持つ領域（例：原口背唇部）を <input type="text" id="q4-2"> という。<br>
@@ -99,8 +99,7 @@
             const v1 = document.getElementById('q2-1').value.trim();
             const v2 = document.getElementById('q2-2').value.trim();
             const v3 = document.getElementById('q2-3').value.trim();
-            const v4 = document.getElementById('q2-4').value.trim();
-            showResult('res2', (v1 === '原口' && v2 === '原腸' && v3 === '原腸' && v4 === '中'), ['原口', '原腸', '原腸胚', '中']);
+            showResult('res2', (v1 === '原口' && v2 === '原腸' && v3 === '中'), ['原口', '原腸', '中']);
         }
 
         function checkQ3() {

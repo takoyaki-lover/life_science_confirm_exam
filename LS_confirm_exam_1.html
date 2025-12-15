@@ -30,7 +30,7 @@
         <h2>問題1. 生体を構成する元素・分子 p.4</h2>
         <div class="q-text">
             1. 生体物質を構成する元素の中で <input type="text" id="q1-1"> は原子の数として9.4%を占めるが、地殻中では0.03%しか存在しない。<br>
-            2. 上記の元素を含む化合物を <input type="text" id="q1-2"> といい、核酸・糖質などのように基本的な単位がいくつも連結してできているものが多い。
+            2. [1の答え] を含む化合物を <input type="text" id="q1-2"> といい、核酸・糖質などのように基本的な単位がいくつも連結してできているものが多い。
         </div>
         <button onclick="checkQ1()">答え合わせ</button>
         <div id="res1" class="result"></div>
@@ -39,8 +39,8 @@
     <div class="question-block">
         <h2>問題2. タンパク質 p.5</h2>
         <div class="q-text">
-            1. タンパク質は多数のアミノ酸が <input type="text" id="q2-1"> 結合でつながったポリ <input type="text" id="q2-2"> である。<br>
-            2. タンパク質を構成するアミノ酸は20種類あり、<input type="text" id="q2-3"> の違いによってアミノ酸の性質が異なる。
+            1. タンパク質は多数のアミノ酸が <input type="text" id="q2-1"> 結合でつながったポリ [ 1 ] である。<br>
+            2. タンパク質を構成するアミノ酸は20種類あり、<input type="text" id="q2-2"> の違いによってアミノ酸の性質が異なる。
         </div>
         <button onclick="checkQ2()">答え合わせ</button>
         <div id="res2" class="result"></div>
@@ -49,10 +49,10 @@
     <div class="question-block">
         <h2>問題3. 脂質 p.6</h2>
         <div class="q-text">
-            1. 脂質のうち <input type="text" id="q3-1"> 脂質は、グリセロールに2本の脂肪酸と1つの <input type="text" id="q3-2"> 酸を結合した形をとる。<br>
-            2. リン脂質分子の中で、リン酸部分は <input type="text" id="q3-3"> 性である。<br>
-            3. リン脂質分子の中で、脂肪酸部分は <input type="text" id="q3-4"> 性である。<br>
-            4. リン脂質は <input type="text" id="q3-5"> を形成して生体膜の主要な成分となる。
+            1. 脂質のうち <input type="text" id="q3-1"> 脂質は、グリセロールに2本の脂肪酸と1つの [ 1 ] 酸を結合した形をとる。<br>
+            2. リン脂質分子の中で、リン酸部分は <input type="text" id="q3-2"> 性である。<br>
+            3. リン脂質分子の中で、脂肪酸部分は <input type="text" id="q3-3"> 性である。<br>
+            4. リン脂質は <input type="text" id="q3-4"> を形成して生体膜の主要な成分となる。
         </div>
         <button onclick="checkQ3()">答え合わせ</button>
         <div id="res3" class="result"></div>
@@ -62,7 +62,7 @@
         <h2>問題4. 糖質 p.7</h2>
         <div class="q-text">
             1. グルコースやガラクトースなどの <input type="text" id="q4-1"> 類のほか、オリゴ糖類がある。<br>
-            2. また、多数の単糖類がつながった <input type="text" id="q4-2"> 類がある。貯蔵 <input type="text" id="q4-3"> のデンプンは、多くのグルコースがつながったものである。
+            2. また、多数の単糖類がつながった <input type="text" id="q4-2"> 類がある。貯蔵 [ 2 ] のデンプンは、多くのグルコースがつながったものである。
         </div>
         <button onclick="checkQ4()">答え合わせ</button>
         <div id="res4" class="result"></div>
@@ -107,8 +107,7 @@
         function checkQ2() {
             const v1 = document.getElementById('q2-1').value.trim();
             const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            showResult('res2', (v1 === 'ペプチド' && v2 === 'ペプチド' && v3 === '側鎖'), ['ペプチド', 'ペプチド', '側鎖']);
+            showResult('res2', (v1 === 'ペプチド' && v2 === '側鎖'), ['ペプチド', '側鎖']);
         }
 
         function checkQ3() {
@@ -116,16 +115,14 @@
             const v2 = document.getElementById('q3-2').value.trim();
             const v3 = document.getElementById('q3-3').value.trim();
             const v4 = document.getElementById('q3-4').value.trim();
-            const v5 = document.getElementById('q3-5').value.trim();
-            const isCorrect = (v1 === 'リン' && v2 === 'リン' && v3 === '親水' && v4 === '疎水' && v5 === '脂質二重層');
-            showResult('res3', isCorrect, ['リン', 'リン', '親水', '疎水', '脂質二重層']);
+            const isCorrect = (v1 === 'リン' && v2 === '親水' && v3 === '疎水' && v4 === '脂質二重層');
+            showResult('res3', isCorrect, ['リン', '親水', '疎水', '脂質二重層']);
         }
 
         function checkQ4() {
             const v1 = document.getElementById('q4-1').value.trim();
             const v2 = document.getElementById('q4-2').value.trim();
-            const v3 = document.getElementById('q4-3').value.trim();
-            showResult('res4', (v1 === '単糖' && v2 === '多糖' && v3 === '多糖'), ['単糖', '多糖', '多糖']);
+            showResult('res4', (v1 === '単糖' && v2 === '多糖'), ['単糖', '多糖']);
         }
 
         function checkQ5() {

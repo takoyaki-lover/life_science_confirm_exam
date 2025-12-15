@@ -73,9 +73,9 @@
     <div class="question-block">
         <h2>問題5. 酵素活性と調節 p.22</h2>
         <div class="q-text">
-            1. 酵素が最も高い活性を示す温度やpHをそれぞれ <input type="text" id="q5-1"> 温度、 <input type="text" id="q5-2"> pHという。<br>
-            2. 基質と似た構造をもつ物質が活性部位を奪い合って阻害することを <input type="text" id="q5-3"> 的阻害という。<br>
-            3. 最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを <input type="text" id="q5-4"> 調節という。
+            1. 酵素が最も高い活性を示す温度やpHをそれぞれ <input type="text" id="q5-1"> 温度、 [ 1 ] pHという。<br>
+            2. 基質と似た構造をもつ物質が活性部位を奪い合って阻害することを <input type="text" id="q5-2"> 的阻害という。<br>
+            3. 最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを <input type="text" id="q5-3"> 調節という。
         </div>
         <button onclick="checkQ5()">答え合わせ</button>
         <div id="res5" class="result"></div>
@@ -132,8 +132,7 @@
             const v1 = document.getElementById('q5-1').value.trim();
             const v2 = document.getElementById('q5-2').value.trim();
             const v3 = document.getElementById('q5-3').value.trim();
-            const v4 = document.getElementById('q5-4').value.trim();
-            showResult('res5', (v1 === '最適' && v2 === '最適' && v3 === '競争' && v4 === 'フィードバック'), ['最適', '最適', '競争', 'フィードバック']);
+            showResult('res5', (v1 === '最適' && v2 === '競争' && v3 === 'フィードバック'), ['最適', '競争', 'フィードバック']);
         }
     </script>
     <script src="./scripts/main.js"></script>

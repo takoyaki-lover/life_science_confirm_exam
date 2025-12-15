@@ -27,7 +27,7 @@
     </p>
 
     <div class="question-block">
-        <h2>問題1. セントラルドグマ</h2>
+        <h2>問題1. セントラルドグマ p.58</h2>
         <div class="q-text">
             1. DNAからRNAを合成する段階を <input type="text" id="q1-1"> という。<br>
             2. RNAの情報からタンパク質を合成する段階を <input type="text" id="q1-2"> という。<br>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="question-block">
-        <h2>問題2. 遺伝情報の発現（転写）</h2>
+        <h2>問題2. 遺伝情報の発現（転写） p.58</h2>
         <div class="q-text">
             1. DNAの長さやゲノムサイズを表す単位は <input type="text" id="q2-1"> (bp) である。<br>
             2. 転写の開始点と方向の情報を持つDNA配列を <input type="text" id="q2-2"> という。<br>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="question-block">
-        <h2>問題3. RNAプロセシング</h2>
+        <h2>問題3. RNAプロセシング p.60</h2>
         <div class="q-text">
             1. 転写直後のRNAから、タンパク質をコードしない <input type="text" id="q3-1"> という領域を取り除く。<br>
             2. この取り除く過程を <input type="text" id="q3-2"> という。<br>
@@ -62,15 +62,29 @@
     </div>
 
     <div class="question-block">
-        <h2>問題4. 翻訳の仕組み</h2>
+        <h2>問題4. 翻訳の仕組み p.62</h2>
         <div class="q-text">
             1. mRNA上の連続した3つの塩基を <input type="text" id="q4-1"> という。<br>
             2. アミノ酸を運ぶRNAを <input type="text" id="q4-2"> という。<br>
             3. [2.の答]が持つ、mRNAの塩基配列と相補的に結合する部分を <input type="text" id="q4-3"> という。<br>
-            4. 翻訳の開始を指令する配列を <input type="text" id="q4-4"> コドンという。
+            4. 翻訳の開始を指令する配列を <input type="text" id="q4-4"> コドンという。<br>
+            5. 翻訳は細胞小器官の <input type="text" id="q4-5"> で実行される。<br>
+            6. [5の答え]の成分となって機能しているRNAが <input type="text" id="q4-6"> である。<br>
+            7. 合成途中のたんぱく質のN末端に <input type="text" id="q4-7"> へ移行を指示するシグナルペプチドがあると、シグナル認識粒子が結合し、 [ 7 ] 膜に結合できるようになり、結果として粗面 [ 7 ] となる。つまり、タンパク質の合成は細胞質基質中の遊離の [5の答え] で始まる。
         </div>
         <button onclick="checkQ4()">答え合わせ</button>
         <div id="res4" class="result"></div>
+    </div>
+
+    <div class="question-block">
+        <h2>問題5. 転写調整 p.67</h2>
+        <div class="q-text">
+            1. 各遺伝子の転写調節領域のうち転写を活性化する転写因子が結合する領域を <input type="text" id="q5-1"> とよぶ。一方、抑制する転写因子が結合する領域は <input type="text" id="q5-2"> と呼ぶ。<br>
+            2. 細胞が、特定の働きを持つ細胞になることを <input type="text" id="q5-3"> という。細胞が [ 2 ] するのは、それぞれ特定の遺伝子が発現するからである。<br>
+            3. すべての体細胞で発現する遺伝子を <input type="text" id="q5-4"> 遺伝子という。
+        </div>
+        <button onclick="checkQ5()">答え合わせ</button>
+        <div id="res5" class="result"></div>
     </div>
 
     <p class="select-p">確認問題選択：
@@ -119,7 +133,18 @@
             const v2 = document.getElementById('q4-2').value.trim();
             const v3 = document.getElementById('q4-3').value.trim();
             const v4 = document.getElementById('q4-4').value.trim();
-            showResult('res4', (v1 === 'コドン' && v2 === 'tRNA' && v3 === 'アンチコドン' && v4 === '開始'), ['コドン', 'tRNA', 'アンチコドン', '開始']);
+            const v5 = document.getElementById('q4-5').value.trim();
+            const v6 = document.getElementById('q4-6').value.trim();
+            const v7 = document.getElementById('q4-7').value.trim();
+            showResult('res4', (v1 === 'コドン' && v2 === 'tRNA' && v3 === 'アンチコドン' && v4 === '開始' && v5 === "リボソーム" && v6 === "rRNA" && v7 === "小胞体"), ['コドン', 'tRNA', 'アンチコドン', '開始', "リボソーム", "rRNA", "小胞体"]);
+        }
+
+        function checkQ5() {
+            const v1 = document.getElementById('q5-1').value.trim();
+            const v2 = document.getElementById('q5-2').value.trim();
+            const v3 = document.getElementById('q5-3').value.trim();
+            const v4 = document.getElementById('q5-4').value.trim();
+            showResult("res5", (v1 === "エンハンサー" && v2 === "サイレンサー" && v3 === "分化" && v4 === "ハウスキーピング"), ["エンハンサー", "サイレンサー", "分化", "ハウスキーピング"]);
         }
     </script>
     <script src="./scripts/main.js"></script>
