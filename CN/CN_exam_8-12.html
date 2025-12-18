@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>コンピュータネットワーク 演習</title>
+    <link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 2; // 第何回目であるか
+	</script>
+</head>
+
+<body>
+
+<h1>コンピュータネットワーク 演習</h1>
+
+<p class="select-p">演習選択：
+	<select class="exam-num">
+		<option value="0">ホーム</option>
+		<option value="1">第1~6回</option>
+		<option value="2">第8~12回</option>
+	</select>
+</p>
+
+<div id="quiz-container"></div>
+
+<p class="select-p">演習選択：
+	<select class="exam-num">
+		<option value="0">ホーム</option>
+		<option value="1">第1~6回</option>
+		<option value="2">第8~12回</option>
+	</select>
+</p>
+
+<div id="quiz-container"></div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "第8回：データリンク層の概要 (1)",
+        imageUrl: "t1.png",
+        questions: [
+            {
+                title: "端末 A から 2 つのルータ X, Y をこの順に経由し，端末 B にフレームを送信した場合，以下のそれぞれで送信されるフレームの宛先 IP アドレスと宛先 MAC アドレスを答えよ．ただし，それぞれの IP アドレスと MAC アドレスは以下の表 1 の通りとする．",
+                text: "A から X の間",
+                sampleAnswer: "",
+            },
+            {
+                text: "X から Y の間",
+                sampleAnswer: "",
+            },
+            {
+                text: "Y から B の間",
+                sampleAnswer: "",
+            },
+            {
+                text: "無線 LAN ではなぜ，CSMA/CD を使用せずに CSMA/CA を用いるのか．理由を記せ．",
+                sampleAnswer: "",
+            }
+        ]
+    },
+    {
+        title: "第9回：データリンク層の概要 (2)",
+        questions: [
+            {
+                text: "スイッチ（レイヤ 2 スイッチ）を使用して接続した端末間では，フレーム衝突は事実上発生しない．その理由を記せ．",
+                sampleAnswer: "",
+            },
+            {
+                title: "ARP について以下の問いに答えよ．",
+                text: "ARP とは何をするためのプロトコルか．",
+                sampleAnswer: "",
+            },
+            {
+                text: "ARP テーブルとは何か．",
+                sampleAnswer: "",
+            },
+            {
+                text: "ARP テーブルに書き込まれた情報は一定時間で消去される理由は何か．",
+                sampleAnswer: "",
+            }
+        ]
+    },
+    {
+        title: "第10回：物理層の概要",
+        questions: [
+            {
+                text: "1 本のケーブルのみを使って，2 つの端末を接続し，双方向の全二重通信を実現したい．TDD と FDD を用いるそれぞれの場合について，その方法を説明せよ．",
+                sampleAnswer: "",
+            },
+            {
+                text: "ベースバンド伝送方式の NRZ，RZ，バイポーラ，マンチェスターの各符号を用いて，ビット列 00101101の信号波形を教科書 124 ページの図 4-21 に倣って図示せよ．ただし，NRZ と RZ は負極側に振れる単流とする．",
+                sampleAnswer: "",
+            }
+        ]
+    },
+    {
+        title: "第11回：ネットワークセキュリティ",
+        questions: [
+            {
+                text: "ファイアウォールでのフィルタリングにおいて，ブラックリスト方式，ホワイトリスト方式とはそれぞれ何か．両者の違いが明確になるように説明せよ．",
+                sampleAnswer: "",
+            },
+            {
+                text: "アプリケーションゲートウェイでは，どのようにして LAN 内のユーザや端末等のリソースを外部の悪意のある攻撃から守るのか，あるいはどのようにして LAN 内からの情報漏洩を防ぐのか，プロキシ機能について解説することにより説明せよ．",
+                sampleAnswer: "",
+            }
+        ]
+    },
+    {
+        title: "第12回：ネットワーク技術の応用",
+        questions: [
+            {
+                text: "かつて ADSL は多くのユーザに利用され，我が国のインターネット普及に大きく貢献したが，その際，提供される伝送速度がユーザによって大きく異なってしまう不平等が生じた．その最大の理由は何か．説明せよ．",
+                sampleAnswer: "",
+            },
+            {
+                text: "クラウドコンピューティングでは一般に IaaS のシステム運用の自由度は高く，SaaS のそれは低いと言われる．その理由を説明せよ．",
+                sampleAnswer: "",
+            }
+        ]
+    }
+];
+
+</script>
+<script src="./scripts/main.js"></script>
+<script src="./scripts/transfer.js"></script>
+</body>
+</html>
