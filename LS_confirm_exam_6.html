@@ -2,153 +2,136 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題 第6週</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 6; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-    <h1>生命科学 確認問題 第6週</h1>
-    <p class="select-p">確認問題選択：
-        <select id="exam-num">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6" selected>第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
 
-    <div class="question-block">
-        <h2>問題1. セントラルドグマ p.58</h2>
-        <div class="q-text">
-            1. DNAからRNAを合成する段階を <input type="text" id="q1-1"> という。<br>
-            2. RNAの情報からタンパク質を合成する段階を <input type="text" id="q1-2"> という。<br>
-            3. DNAやmRNAでは、情報は <input type="text" id="q1-3"> として書き込まれている。<br>
-            4. タンパク質では、その情報は <input type="text" id="q1-4"> 配列に変換されている。
-        </div>
-        <button onclick="checkQ1()">答え合わせ</button>
-        <div id="res1" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題2. 遺伝情報の発現（転写） p.58</h2>
-        <div class="q-text">
-            1. DNAの長さやゲノムサイズを表す単位は <input type="text" id="q2-1"> (bp) である。<br>
-            2. 転写の開始点と方向の情報を持つDNA配列を <input type="text" id="q2-2"> という。<br>
-            3. 真核生物の[2.の答]には、 <input type="text" id="q2-3"> とよばれる「TATAAAA」の配列が含まれることが多い。<br>
-            4. 転写を行う酵素は <input type="text" id="q2-4"> ポリメラーゼである。
-        </div>
-        <button onclick="checkQ2()">答え合わせ</button>
-        <div id="res2" class="result"></div>
-    </div>
+<div id="quiz-container"></div>
 
-    <div class="question-block">
-        <h2>問題3. RNAプロセシング p.60</h2>
-        <div class="q-text">
-            1. 転写直後のRNAから、タンパク質をコードしない <input type="text" id="q3-1"> という領域を取り除く。<br>
-            2. この取り除く過程を <input type="text" id="q3-2"> という。<br>
-            3. 残った、タンパク質をコードする領域を <input type="text" id="q3-3"> という。
-        </div>
-        <button onclick="checkQ3()">答え合わせ</button>
-        <div id="res3" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題4. 翻訳の仕組み p.62</h2>
-        <div class="q-text">
-            1. mRNA上の連続した3つの塩基を <input type="text" id="q4-1"> という。<br>
-            2. アミノ酸を運ぶRNAを <input type="text" id="q4-2"> という。<br>
-            3. [2.の答]が持つ、mRNAの塩基配列と相補的に結合する部分を <input type="text" id="q4-3"> という。<br>
-            4. 翻訳の開始を指令する配列を <input type="text" id="q4-4"> コドンという。<br>
-            5. 翻訳は細胞小器官の <input type="text" id="q4-5"> で実行される。<br>
-            6. [5の答え]の成分となって機能しているRNAが <input type="text" id="q4-6"> である。<br>
-            7. 合成途中のたんぱく質のN末端に <input type="text" id="q4-7"> へ移行を指示するシグナルペプチドがあると、シグナル認識粒子が結合し、 [ 7 ] 膜に結合できるようになり、結果として粗面 [ 7 ] となる。つまり、タンパク質の合成は細胞質基質中の遊離の [5の答え] で始まる。
-        </div>
-        <button onclick="checkQ4()">答え合わせ</button>
-        <div id="res4" class="result"></div>
-    </div>
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "問題1. セントラルドグマ p.58",
+        questions: [
+            {
+                text: [
+                    "DNAからRNAを合成する段階を [] という。",
+                    "RNAの情報からタンパク質を合成する段階を [] という。",
+                    "DNAやmRNAでは、情報は [] として書き込まれている。",
+                    "タンパク質では、その情報は [] 配列に変換されている。",
+                ],
+                answers: ["転写", "翻訳", "塩基配列", "アミノ酸"]
+            }
+        ]
+    },
+    {
+        title: "問題2. 遺伝情報の発現（転写） p.58",
+        questions: [
+            {
+                text: [
+                    "DNAの長さやゲノムサイズを表す単位は [] (bp) である。",
+                    "転写の開始点と方向の情報を持つDNA配列を [] という。",
+                    "真核生物の [ 2.の答え ] には、 [] とよばれる「TATAAAA」の配列が含まれることが多い。",
+                    "転写を行う酵素は [] ポリメラーゼである。",
+                ],
+                answers: ["塩基対", "プロモーター", "TATAボックス", "RNA"]
+            }
+        ]
+    },
+    {
+        title: "問題3. RNAプロセシング p.60",
+        questions: [
+            {
+                text: [
+                    "転写直後のRNAから、タンパク質をコードしない [] という領域を取り除く。",
+                    "この取り除く過程を [] という。<br>",
+                    "残った、タンパク質をコードする領域を [] という。",
+                ],
+                answers: ["イントロン", "スプライシング", "エキソン"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 翻訳の仕組み p.62",
+        questions: [
+            {
+                text: [
+                    "mRNA上の連続した3つの塩基を [] という。",
+                    "アミノ酸を運ぶRNAを [] という。",
+                    "[ 2.の答え ]が持つ、mRNAの塩基配列と相補的に結合する部分を [] という。",
+                    "翻訳の開始を指令する配列を [] コドンという。",
+                    "翻訳は細胞小器官の [] で実行される。",
+                    "[ 5.の答え ]の成分となって機能しているRNAが [] である。",
+                    "合成途中のたんぱく質のN末端に [] へ移行を指示するシグナルペプチドがあると、シグナル認識粒子が結合し、 [ 7.の答え ] 膜に結合できるようになり、結果として粗面 [ 7.の答え ] となる。つまり、タンパク質の合成は細胞質基質中の遊離の [ 5.の答え ] で始まる。",
+                ],
+                answers: ["コドン", "tRNA", "アンチコドン", "開始", "リボソーム", "rRNA", "小胞体"]
+            }
+        ]
+    },
+    {
+        title: "問題5. 転写調整 p.67",
+        questions: [
+            {
+                text: [
+                    "各遺伝子の転写調節領域のうち転写を活性化する転写因子が結合する領域を [] とよぶ。一方、抑制する転写因子が結合する領域は [] と呼ぶ。",
+                    "細胞が、特定の働きを持つ細胞になることを [] という。細胞が [ 2.の答え ] するのは、それぞれ特定の遺伝子が発現するからである。",
+                    "すべての体細胞で発現する遺伝子を [] 遺伝子という。",
+                ],
+                answers: ["エンハンサー", "サイレンサー", "分化", "ハウスキーピング"]
+            }
+        ]
+    }
+];
 
-    <div class="question-block">
-        <h2>問題5. 転写調整 p.67</h2>
-        <div class="q-text">
-            1. 各遺伝子の転写調節領域のうち転写を活性化する転写因子が結合する領域を <input type="text" id="q5-1"> とよぶ。一方、抑制する転写因子が結合する領域は <input type="text" id="q5-2"> と呼ぶ。<br>
-            2. 細胞が、特定の働きを持つ細胞になることを <input type="text" id="q5-3"> という。細胞が [ 2 ] するのは、それぞれ特定の遺伝子が発現するからである。<br>
-            3. すべての体細胞で発現する遺伝子を <input type="text" id="q5-4"> 遺伝子という。
-        </div>
-        <button onclick="checkQ5()">答え合わせ</button>
-        <div id="res5" class="result"></div>
-    </div>
+</script>
 
-    <p class="select-p">確認問題選択：
-        <select id="exam-num1">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6" selected>第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
-
-    <script>
-        function checkQ1() {
-            const v1 = document.getElementById('q1-1').value.trim();
-            const v2 = document.getElementById('q1-2').value.trim();
-            const v3 = document.getElementById('q1-3').value.trim();
-            const v4 = document.getElementById('q1-4').value.trim();
-            showResult('res1', (v1 === '転写' && v2 === '翻訳' && v3 === '塩基配列' && v4 === 'アミノ酸'), ['転写', '翻訳', '塩基配列', 'アミノ酸']);
-        }
-
-        function checkQ2() {
-            const v1 = document.getElementById('q2-1').value.trim();
-            const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            const v4 = document.getElementById('q2-4').value.trim().toUpperCase();
-            showResult('res2', (v1 === '塩基対' && v2 === 'プロモーター' && v3 === 'TATAボックス' && v4 === 'RNA'), ['塩基対', 'プロモーター', 'TATAボックス', 'RNA']);
-        }
-
-        function checkQ3() {
-            const v1 = document.getElementById('q3-1').value.trim();
-            const v2 = document.getElementById('q3-2').value.trim();
-            const v3 = document.getElementById('q3-3').value.trim();
-            showResult('res3', (v1 === 'イントロン' && v2 === 'スプライシング' && v3 === 'エキソン'), ['イントロン', 'スプライシング', 'エキソン']);
-        }
-
-        function checkQ4() {
-            const v1 = document.getElementById('q4-1').value.trim();
-            const v2 = document.getElementById('q4-2').value.trim();
-            const v3 = document.getElementById('q4-3').value.trim();
-            const v4 = document.getElementById('q4-4').value.trim();
-            const v5 = document.getElementById('q4-5').value.trim();
-            const v6 = document.getElementById('q4-6').value.trim();
-            const v7 = document.getElementById('q4-7').value.trim();
-            showResult('res4', (v1 === 'コドン' && v2 === 'tRNA' && v3 === 'アンチコドン' && v4 === '開始' && v5 === "リボソーム" && v6 === "rRNA" && v7 === "小胞体"), ['コドン', 'tRNA', 'アンチコドン', '開始', "リボソーム", "rRNA", "小胞体"]);
-        }
-
-        function checkQ5() {
-            const v1 = document.getElementById('q5-1').value.trim();
-            const v2 = document.getElementById('q5-2').value.trim();
-            const v3 = document.getElementById('q5-3').value.trim();
-            const v4 = document.getElementById('q5-4').value.trim();
-            showResult("res5", (v1 === "エンハンサー" && v2 === "サイレンサー" && v3 === "分化" && v4 === "ハウスキーピング"), ["エンハンサー", "サイレンサー", "分化", "ハウスキーピング"]);
-        }
-    </script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/transfer.js"></script>
+<script src="./scripts/transfer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </body>
 </html>

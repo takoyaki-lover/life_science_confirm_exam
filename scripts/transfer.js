@@ -1,24 +1,24 @@
-// 現在の小テスト番号を取得
-let num = document.getElementById("exam-num").value;
+// exam-num クラス配列取得
+const exam_num = document.querySelectorAll(".exam-num");
 
 
 // 小テスト変更
-document.getElementById("exam-num").addEventListener("change", function() {
-	num = document.getElementById("exam-num").value;
-	if (num != 0) {
-		location.href = `./LS_confirm_exam_${num}.html`;
-	}
-	else {
-		location.href = "./home.html"
-	}
+exam_num.forEach(function (exam_num) {
+	exam_num.addEventListener("change", function () {
+		num = exam_num.value;
+		if (num != 0) {
+			location.href = `./LS_confirm_exam_${num}.html`;
+		}
+		else {
+			location.href = "./home.html";
+		}
+	})
+	exam_num.options[num].selected = true;
 })
 
-document.getElementById("exam-num1").addEventListener("change", function() {
-	num = document.getElementById("exam-num1").value;
-	if (num != 0) {
-		location.href = `./LS_confirm_exam_${num}.html`;
-	}
-	else {
-		location.href = "./home.html"
-	}
-})
+
+// 第何回目表示
+if (num != 0) {
+    document.getElementById("title").textContent += ` 第${num}週`
+    document.getElementById("header-title").textContent += ` 第${num}週`
+}

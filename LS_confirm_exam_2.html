@@ -2,141 +2,218 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題 第2週</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 2; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-    <h1>生命科学 確認問題 第2週</h1>
-    <p class="select-p">確認問題選択：
-        <select id="exam-num">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2" selected>第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
 
-    <div class="question-block">
-        <h2>問題1. タンパク質の基本構造 p.5</h2>
-        <div class="q-text">
-            1. タンパク質は多数の <input type="text" id="q1-1"> がペプチド結合でつながった構造をしている。<br>
-            2. 上記の分子は1つの炭素原子に水素、<input type="text" id="q1-2"> 、カルボキシ基、と側鎖が結合した構造を持つ。<br>
-            3. タンパク質（ポリペプチド）には <input type="text" id="q1-3"> という方向性がある。
-        </div>
-        <button onclick="checkQ1()">答え合わせ</button>
-        <div id="res1" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題2. タンパク質の立体構造(1次〜2次) p.10</h2>
-        <div class="q-text">
-            1. タンパク質の <input type="text" id="q2-1"> のことを1次構造とよぶ。<br>
-            2. 分子内のアミノ酸どうしが <input type="text" id="q2-2"> 結合によって形成する部分的な構造を2次構造とよぶ。<br>
-            3. 2次構造には α- <input type="text" id="q2-3"> や β-シートがある。
-        </div>
-        <button onclick="checkQ2()">答え合わせ</button>
-        <div id="res2" class="result"></div>
-    </div>
+<div id="quiz-container"></div>
 
-    <div class="question-block">
-        <h2>問題3. タンパク質の立体構造(3次〜4次) p.11</h2>
-        <div class="q-text">
-            1. 1本のポリペプチドがとっている全体の構造を3次構造といい、複数のポリペプチドからなる構造を <input type="text" id="q3-1"> 次構造という。<br>
-            2. 4次構造をとるタンパク質ではそれぞれのポリペプチド鎖は <input type="text" id="q3-2"> とよばれる。<br>
-            3. 1つのタンパク質にある、50〜200個程度のアミノ酸からなる機能単位を <input type="text" id="q3-3"> とよぶ。
-        </div>
-        <button onclick="checkQ3()">答え合わせ</button>
-        <div id="res3" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題4. 酵素反応 p.19</h2>
-        <div class="q-text">
-            1. 酵素は生体反応を進める <input type="text" id="q4-1"> である。<br>
-            2. 特定の酵素が特定の基質とだけ作用する性質を <input type="text" id="q4-2"> 特異性とよぶ。<br>
-            3. 酵素内で [2の答え] と結合する領域を <input type="text" id="q4-3"> という。
-        </div>
-        <button onclick="checkQ4()">答え合わせ</button>
-        <div id="res4" class="result"></div>
-    </div>
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "問題1. タンパク質の基本構造 p.5",
+        questions: [
+            {
+                text: [
+                    "タンパク質は多数の [] がペプチド結合でつながった構造をしている。",
+                    "上記の分子は1つの炭素原子に水素、[] 、カルボキシ基と側鎖が結合した構造を持つ。",
+                    "タンパク質（ポリペプチド）には [] という方向性がある。"
+                ],
+                answers: ["アミノ酸", "アミノ基", "N-C"]
+            }
+        ]
+    },
+    {
+        title: "問題2. タンパク質の立体構造(1次〜2次) p.10",
+        questions: [
+            {
+                text: [
+                    "タンパク質の [] のことを1次構造とよぶ。",
+                    "分子内のアミノ酸どうしが [] 結合によって形成する部分的な構造を2次構造とよぶ。",
+                    "2次構造には α- [] や β-シートがある。"
+                ],
+                answers: ["アミノ酸配列", "水素", "ヘリックス"]
+            }
+        ]
+    },
+    {
+        title: "問題3. タンパク質の立体構造(3次〜4次) p.11",
+        questions: [
+            {
+                text: [
+                    "1本のポリペプチドがとっている全体の構造を3次構造といい、複数のポリペプチドからなる構造を [] 次構造という。",
+                    "4次構造をとるタンパク質ではそれぞれのポリペプチド鎖は [] とよばれる。",
+                    "1つのタンパク質にある、50〜200個程度のアミノ酸からなる機能単位を [] とよぶ。"
+                ],
+                answers: ["4", "サブユニット", "ドメイン"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 酵素反応 p.19",
+        questions: [
+            {
+                text: [
+                    "酵素は生体反応を進める [] である。",
+                    "特定の酵素が特定の基質とだけ作用する性質を [] 特異性とよぶ。",
+                    "酵素内で [ 2.の答え ] と結合する領域を [] という。"
+                ],
+                answers: ["触媒", "基質", "活性部位"]
+            }
+        ]
+    },
+    {
+        title: "問題5. 酵素活性と調節 p.22",
+        questions: [
+            {
+                text: [
+                    "酵素が最も高い活性を示す温度やpHをそれぞれ [] 温度、 [ 1.の答え ] pHという。",
+                    "基質と似た構造をもつ物質が活性部位を奪い合って阻害することを [] 的阻害という。",
+                    "最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを [] 調節という。"
+                ],
+                answers: ["最適", "競争", "フィードバック"]
+            }
+        ]
+    }
+]
+/*
+const quizData = [
+    {
+        title: "問題1. タンパク質の基本構造 p.5",
+        questions: [
+            {
+                text: "タンパク質は多数の [] がペプチド結合でつながった構造をしている。",
+                answers: ["アミノ酸"]
+            },
+            {
+                text: "上記の分子は1つの炭素原子に水素、[] 、カルボキシ基、と側鎖が結合した構造を持つ。",
+                answers: ["アミノ基"]
+            },
+            {
+                text: "タンパク質（ポリペプチド）には [] という方向性がある。",
+                answers: ["N-C"]
+            }
+        ]
+    },
+    {
+        title: "問題2. タンパク質の立体構造(1次〜2次) p.10",
+        questions: [
+            {
+                text: "タンパク質の [] のことを1次構造とよぶ。",
+                answers: ["アミノ酸配列"]
+            },
+            {
+                text: "分子内のアミノ酸どうしが [] 結合によって形成する部分的な構造を2次構造とよぶ。",
+                answers: ["水素"]
+            },
+            {
+                text: "2次構造には α- [] や β-シートがある。",
+                answers: ["ヘリックス"]
+            }
+        ]
+    },
+    {
+        title: "問題3. タンパク質の立体構造(3次〜4次) p.11",
+        questions: [
+            {
+                text: "1本のポリペプチドがとっている全体の構造を3次構造といい、複数のポリペプチドからなる構造を [] 次構造という。",
+                answers: ["4"]
+            },
+            {
+                text: "4次構造をとるタンパク質ではそれぞれのポリペプチド鎖は [] とよばれる。",
+                answers: ["サブユニット"]
+            },
+            {
+                text: "1つのタンパク質にある、50〜200個程度のアミノ酸からなる機能単位を [] とよぶ。",
+                answers: ["ドメイン"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 酵素反応 p.19",
+        questions: [
+            {
+                text: "酵素は生体反応を進める [] である。",
+                answers: ["触媒"]
+            },
+            {
+                text: "特定の酵素が特定の基質とだけ作用する性質を [] 特異性とよぶ。",
+                answers: ["基質"]
+            },
+            {
+                text: "酵素内で [2の答え] と結合する領域を [] という。",
+                answers: ["活性部位"]
+            }
+        ]
+    },
+    {
+        title: "問題5. 酵素活性と調節 p.22",
+        questions: [
+            {
+                text: "酵素が最も高い活性を示す温度やpHをそれぞれ [] 温度、 [ 1 ] pHという。",
+                answers: ["最適"]
+            },
+            {
+                text: "基質と似た構造をもつ物質が活性部位を奪い合って阻害することを [] 的阻害という。",
+                answers: ["競争"]
+            },
+            {
+                text: "最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを [] 調節という。",
+                answers: ["フィードバック"]
+            }
+        ]
+    },
+];
+*/
+</script>
 
-    <div class="question-block">
-        <h2>問題5. 酵素活性と調節 p.22</h2>
-        <div class="q-text">
-            1. 酵素が最も高い活性を示す温度やpHをそれぞれ <input type="text" id="q5-1"> 温度、 [ 1 ] pHという。<br>
-            2. 基質と似た構造をもつ物質が活性部位を奪い合って阻害することを <input type="text" id="q5-2"> 的阻害という。<br>
-            3. 最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを <input type="text" id="q5-3"> 調節という。
-        </div>
-        <button onclick="checkQ5()">答え合わせ</button>
-        <div id="res5" class="result"></div>
-    </div>
-
-    <p class="select-p">確認問題選択：
-        <select id="exam-num1">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2" selected>第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
-
-    <script>
-        function checkQ1() {
-            const v1 = document.getElementById('q1-1').value.trim();
-            const v2 = document.getElementById('q1-2').value.trim();
-            const v3 = document.getElementById('q1-3').value.trim().toUpperCase();
-            const isCorrect = (v1 === 'アミノ酸' && v2 === 'アミノ基' && (v3 === 'N-C' || v3 === 'NC'));
-            showResult('res1', isCorrect, ['アミノ酸', 'アミノ基', 'N-C']);
-        }
-
-        function checkQ2() {
-            const v1 = document.getElementById('q2-1').value.trim();
-            const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            showResult('res2', (v1 === 'アミノ酸配列' && v2 === '水素' && v3 === 'ヘリックス'), ['アミノ酸配列', '水素', 'ヘリックス']);
-        }
-
-        function checkQ3() {
-            const v1 = document.getElementById('q3-1').value.trim();
-            const v2 = document.getElementById('q3-2').value.trim();
-            const v3 = document.getElementById('q3-3').value.trim();
-            showResult('res3', (v1 === '4' && v2 === 'サブユニット' && v3 === 'ドメイン'), ['4', 'サブユニット', 'ドメイン']);
-        }
-
-        function checkQ4() {
-            const v1 = document.getElementById('q4-1').value.trim();
-            const v2 = document.getElementById('q4-2').value.trim();
-            const v3 = document.getElementById('q4-3').value.trim();
-            showResult('res4', (v1 === '触媒' && v2 === '基質' && v3 === '活性部位'), ['触媒', '基質', '活性部位']);
-        }
-
-        function checkQ5() {
-            const v1 = document.getElementById('q5-1').value.trim();
-            const v2 = document.getElementById('q5-2').value.trim();
-            const v3 = document.getElementById('q5-3').value.trim();
-            showResult('res5', (v1 === '最適' && v2 === '競争' && v3 === 'フィードバック'), ['最適', '競争', 'フィードバック']);
-        }
-    </script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/transfer.js"></script>
+<script src="./scripts/transfer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </body>
 </html>

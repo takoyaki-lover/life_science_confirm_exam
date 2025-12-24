@@ -2,27 +2,32 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 0; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-<h1>生命科学 確認問題</h1>
-<p class="select-p">確認問題選択：
-	<select id="exam-num">
-		<option value="0" selected>ホーム</option>
-		<option value="1">第1回</option>
-		<option value="2">第2回</option>
-		<option value="3">第3回</option>
-		<option value="4">第4回</option>
-		<option value="5">第5回</option>
-		<option value="6">第6回</option>
-		<option value="7">第7回</option>
-		<option value="8">第8回</option>
-		<option value="9">第9回</option>
-		<option value="10">第10回</option>
-		<option value="11">第11回</option>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
+
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
 	</select>
 </p>
 

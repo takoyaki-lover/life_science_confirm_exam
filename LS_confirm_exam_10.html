@@ -2,122 +2,117 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題 第10週</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 10; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-    <h1>生命科学 確認問題 第10週</h1>
-    <p class="select-p">確認問題選択：
-        <select id="exam-num">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10" selected>第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
 
-    <div class="question-block">
-        <h2>問題1. 恒常性とホルモン p.104</h2>
-        <div class="q-text">
-            1. 脊椎動物の恒常性は内分泌系と <input type="text" id="q1-1"> 系によって保たれる。<br>
-            2. ホルモンが作用する特定の器官を <input type="text" id="q1-2"> 器官という。<br>
-            3. ホルモンが作用するためには、細胞にそのホルモンに対応する <input type="text" id="q1-3"> が必要である。
-        </div>
-        <button onclick="checkQ1()">答え合わせ</button>
-        <div id="res1" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題2. 免疫系 p.115</h2>
-        <div class="q-text">
-            1. 免疫には、生まれつき備わっている自然免疫と、後天的な <input type="text" id="q2-1"> 免疫がある。<br>
-            2. 抗体が中心となって働く免疫を <input type="text" id="q2-2"> 免疫という。<br>
-            3. T細胞が感染細胞を直接攻撃する免疫を <input type="text" id="q2-3"> 免疫という。
-        </div>
-        <button onclick="checkQ2()">答え合わせ</button>
-        <div id="res2" class="result"></div>
-    </div>
+<div id="quiz-container"></div>
 
-    <div class="question-block">
-        <h2>問題3. 抗原提示 p.116</h2>
-        <div class="q-text">
-            1. 抗原情報をヘルパーT細胞に伝える分子は <input type="text" id="q4-1"> (クラスII) である。<br>
-            2. 全ての細胞が持つ、細胞内のタンパク質断片を提示する分子は <input type="text" id="q4-2"> (クラスI) である。<br>
-            3. MHCクラスIに提示された異常な抗原を認識して攻撃するのは <input type="text" id="q4-3"> T細胞である。
-        </div>
-        <button onclick="checkQ4()">答え合わせ</button>
-        <div id="res4" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題4. DNAの損傷と修復 p.123</h2>
-        <div class="q-text">
-            1. 突然変異を引き起こす物理的・化学的作用原を <input type="text" id="q5-1"> という。<br>
-            2. 紫外線によるピリミジン二量体のような歪みは、 <input type="text" id="q5-2"> 除去修復によって直される。<br>
-            3. DNAの2本鎖切断は、非相同末端結合や <input type="text" id="q5-3"> 組換えによって修復される。
-        </div>
-        <button onclick="checkQ5()">答え合わせ</button>
-        <div id="res5" class="result"></div>
-    </div>
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "問題1. 恒常性とホルモン p.104",
+        questions: [
+            {
+                text: [
+                    "脊椎動物の恒常性は内分泌系と [] 系によって保たれる。",
+                    "ホルモンが作用する特定の器官を [] 器官という。",
+                    "ホルモンが作用するためには、細胞にそのホルモンに対応する [] が必要である。",
+                ],
+                answers: ["自律神経", "標的", "受容体"]
+            }
+        ]
+    },
+    {
+        title: "問題2. 免疫系 p.115",
+        questions: [
+            {
+                text: [
+                    "免疫には、生まれつき備わっている自然免疫と、後天的な [] 免疫がある。",
+                    "抗体が中心となって働く免疫を [] 免疫という。",
+                    "T細胞が感染細胞を直接攻撃する免疫を [] 免疫という。",
+                ],
+                answers: ["獲得", "体液性", "細胞性"]
+            }
+        ]
+    },
+    {
+        title: "問題3. 抗原提示 p.116",
+        questions: [
+            {
+                text: [
+                    "抗原情報をヘルパーT細胞に伝える分子は [] (クラスII) である。",
+                    "全ての細胞が持つ、細胞内のタンパク質断片を提示する分子は [] (クラスI) である。",
+                    "MHCクラスIに提示された異常な抗原を認識して攻撃するのは [] T細胞である。",
+                ],
+                answers: ["MHC", "MHC", "キラー"]
+            }
+        ]
+    },
+    {
+        title: "問題4. DNAの損傷と修復 p.123",
+        questions: [
+            {
+                text: [
+                    "突然変異を引き起こす物理的・化学的作用原を [] という。",
+                    "紫外線によるピリミジン二量体のような歪みは、 [] 除去修復によって直される。",
+                    "DNAの2本鎖切断は、非相同末端結合や [] 組換えによって修復される。",
+                ],
+                answers: ["変異原", "ヌクレオチド", "相同"]
+            }
+        ]
+    }
+];
 
-    <p class="select-p">確認問題選択：
-        <select id="exam-num1">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10" selected>第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+</script>
 
-    <script>
-        function checkQ1() {
-            const v1 = document.getElementById('q1-1').value.trim();
-            const v2 = document.getElementById('q1-2').value.trim();
-            const v3 = document.getElementById('q1-3').value.trim();
-            showResult('res1', (v1 === '自律神経' && v2 === '標的' && v3 === '受容体'), ['自律神経', '標的', '受容体']);
-        }
-
-        function checkQ2() {
-            const v1 = document.getElementById('q2-1').value.trim();
-            const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            showResult('res2', (v1 === '獲得' && v2 === '体液性' && v3 === '細胞性'), ['獲得', '体液性', '細胞性']);
-        }
-
-        function checkQ4() {
-            const v1 = document.getElementById('q4-1').value.trim().toUpperCase();
-            const v2 = document.getElementById('q4-2').value.trim().toUpperCase();
-            const v3 = document.getElementById('q4-3').value.trim();
-            showResult('res4', (v1 === 'MHC' && v2 === 'MHC' && v3 === 'キラー'), ['MHC', 'MHC', 'キラー']);
-        }
-
-        function checkQ5() {
-            const v1 = document.getElementById('q5-1').value.trim();
-            const v2 = document.getElementById('q5-2').value.trim();
-            const v3 = document.getElementById('q5-3').value.trim();
-            showResult('res5', (v1 === '変異原' && v2 === 'ヌクレオチド' && v3 === '相同'), ['変異原', 'ヌクレオチド', '相同']);
-        }
-    </script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/transfer.js"></script>
+<script src="./scripts/transfer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </body>
 </html>

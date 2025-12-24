@@ -2,121 +2,116 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題 第9週</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 9; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-    <h1>生命科学 確認問題 第9週</h1>
-    <p class="select-p">確認問題選択：
-        <select id="exam-num">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9" selected>第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
 
-    <div class="question-block">
-        <h2>問題1. 配偶者と受精 p.89</h2>
-        <div class="q-text">
-            1. 精子の頭部には、精核のほかに酵素を含む <input type="text" id="q1-1"> がある。<br>
-            2. 精子の膜と[1.の答]の外膜が融合し、内容物が放出される過程を <input type="text" id="q1-2"> 反応という。<br>
-            3. 受精から成体になるまでの一連の過程を <input type="text" id="q1-3"> といい、体の形を作ることを <input type="text" id="q1-4"> という。
-        </div>
-        <button onclick="checkQ1()">答え合わせ</button>
-        <div id="res1" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題2. ウニの初期発生 p.91</h2>
-        <div class="q-text">
-            1. ウニの発生で、陥入が始まる地点を <input type="text" id="q2-1"> という。<br>
-            2. 陥入によって形成される袋状の構造を <input type="text" id="q2-2"> といい、この時期の胚を [ 2 ] 胚とよぶ。<br>
-            3. 将来、筋肉や骨に分化するのは <input type="text" id="q2-3"> 胚葉である。
-        </div>
-        <button onclick="checkQ2()">答え合わせ</button>
-        <div id="res2" class="result"></div>
-    </div>
+<div id="quiz-container"></div>
 
-    <div class="question-block">
-        <h2>問題3. 哺乳類（ヒト）の発生 p.94</h2>
-        <div class="q-text">
-            1. ヒトでは、卵管の上部で受精したのち、胚は卵割しながら下降し、約7日で子宮に <input type="text" id="q3-1"> する。<br>
-            2. 128細胞期の胚は、内部にある <input type="text" id="q3-2"> と、周囲の栄養外胚葉からなる。
-        </div>
-        <button onclick="checkQ3()">答え合わせ</button>
-        <div id="res3" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題4. 分化と誘導 p.96</h2>
-        <div class="q-text">
-            1. 近接した領域の影響によって細胞の運命が決定される現象を <input type="text" id="q4-1"> という。<br>
-            2. [1.の答]の能力を持つ領域（例：原口背唇部）を <input type="text" id="q4-2"> という。<br>
-            3. 内胚葉が中胚葉を形成させる働きかけを <input type="text" id="q4-3"> 誘導という。
-        </div>
-        <button onclick="checkQ4()">答え合わせ</button>
-        <div id="res4" class="result"></div>
-    </div>
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "問題1. 配偶者と受精 p.89",
+        questions: [
+            {
+                text: [
+                    "精子の頭部には、精核のほかに酵素を含む [] がある。",
+                    "精子の膜と [ 1.の答え ] の外膜が融合し、内容物が放出される過程を [] 反応という。",
+                    "受精から成体になるまでの一連の過程を [] といい、体の形を作ることを [] という。",
+                ],
+                answers: ["先体", "先体", "発生", "形態形成"]
+            }
+        ]
+    },
+    {
+        title: "問題2. ウニの初期発生 p.91",
+        questions: [
+            {
+                text: [
+                    "ウニの発生で、陥入が始まる地点を [] という。",
+                    "陥入によって形成される袋状の構造を [] といい、この時期の胚を [ 2 ] 胚とよぶ。",
+                    "将来、筋肉や骨に分化するのは [] 胚葉である。",
+                ],
+                answers: ["原口", "原腸", "中"]
+            }
+        ]
+    },
+    {
+        title: "問題3. 哺乳類（ヒト）の発生 p.94",
+        questions: [
+            {
+                text: [
+                    "ヒトでは、卵管の上部で受精したのち、胚は卵割しながら下降し、約7日で子宮に [] する。",
+                    "128細胞期の胚は、内部にある [] と、周囲の栄養外胚葉からなる。",
+                ],
+                answers: ["着床", "内部細胞塊"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 分化と誘導 p.96",
+        questions: [
+            {
+                text: [
+                    "近接した領域の影響によって細胞の運命が決定される現象を [] という。",
+                    "[ 1.の答え ] の能力を持つ領域（例：原口背唇部）を [] という。",
+                    "内胚葉が中胚葉を形成させる働きかけを [] 誘導という。",
+                ],
+                answers: ["誘導", "オーガナイザー", "中胚葉"]
+            }
+        ]
+    }
+];
 
-    <p class="select-p">確認問題選択：
-        <select id="exam-num1">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4">第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9" selected>第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+</script>
 
-    <script>
-        function checkQ1() {
-            const v1 = document.getElementById('q1-1').value.trim();
-            const v2 = document.getElementById('q1-2').value.trim();
-            const v3 = document.getElementById('q1-3').value.trim();
-            const v4 = document.getElementById('q1-4').value.trim();
-            showResult('res1', (v1 === '先体' && v2 === '先体' && v3 === '発生' && v4 === '形態形成'), ['先体', '先体', '発生', '形態形成']);
-        }
-
-        function checkQ2() {
-            const v1 = document.getElementById('q2-1').value.trim();
-            const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            showResult('res2', (v1 === '原口' && v2 === '原腸' && v3 === '中'), ['原口', '原腸', '中']);
-        }
-
-        function checkQ3() {
-            const v1 = document.getElementById('q3-1').value.trim();
-            const v2 = document.getElementById('q3-2').value.trim();
-            showResult('res3', (v1 === '着床' && v2 === '内部細胞塊'), ['着床', '内部細胞塊']);
-        }
-
-        function checkQ4() {
-            const v1 = document.getElementById('q4-1').value.trim();
-            const v2 = document.getElementById('q4-2').value.trim();
-            const v3 = document.getElementById('q4-3').value.trim();
-            showResult('res4', (v1 === '誘導' && v2 === 'オーガナイザー' && v3 === '中胚葉'), ['誘導', 'オーガナイザー', '中胚葉']);
-        }
-    </script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/transfer.js"></script>
+<script src="./scripts/transfer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </body>
 </html>

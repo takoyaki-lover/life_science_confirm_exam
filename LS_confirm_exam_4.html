@@ -2,148 +2,132 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>生命科学 確認問題 第4週</title>
+    <title id="title">生命科学 確認問題</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
 	<link rel="stylesheet" href="./styles.css">
+	<script>
+		let num = 4; // 第何週目であるか
+	</script>
 </head>
+
 <body>
 
-    <h1>生命科学 確認問題 第4週</h1>
-    <p class="select-p">確認問題選択：
-        <select id="exam-num">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4" selected>第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
+<h1 id="header-title" class="level-1">生命科学 確認問題</h1>
 
-    <div class="question-block">
-        <h2>問題1. 細胞の接着 p.45</h2>
-        <div class="q-text">
-            1. 細胞が同じ種類の細胞を選んで接着することを <input type="text" id="q1-1"> という。<br>
-            2. カドヘリンは細胞外ドメインが <input type="text" id="q1-2"> な立体構造をもつため、同じ種類どうしで結合する。<br>
-            3. 上皮組織において、水などの小分子も通さない強固な接着を <input type="text" id="q1-3"> という。
-        </div>
-        <button onclick="checkQ1()">答え合わせ</button>
-        <div id="res1" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題2. ATPの構造と性質 p.25</h2>
-        <div class="q-text">
-            1. 複雑な物質を分解してエネルギーを得る過程を <input type="text" id="q2-1"> といい、その逆を <input type="text" id="q2-2"> という。<br>
-            2. 生命活動におけるエネルギーの移動には <input type="text" id="q2-3"> (正式名称で)が重要な働きをしている。
-            3. [2の答え] は核酸（ヌクレオチド）の一種であり、塩基の <input type="text" id="q2-4"> と、五炭糖の <input type="text" id="q2-5"> 、3つのリン酸からなる。<br>
-            4. リン酸どうしの結合のうち、大きなエネルギーを蓄えている部分を <input type="text" id="q2-6"> リン酸結合という。
-        </div>
-        <button onclick="checkQ2()">答え合わせ</button>
-        <div id="res2" class="result"></div>
-    </div>
+<div id="quiz-container"></div>
 
-    <div class="question-block">
-        <h2>問題3. 呼吸によるATP生成 p.26</h2>
-        <div class="q-text">
-            1. 酸素を利用してATPを生産する反応を <input type="text" id="q3-1"> といい、解糖系、クエン酸回路、電子伝達系の3過程がある。<br>
-            2. クエン酸回路はミトコンドリアの <input type="text" id="q3-2"> で進行する。<br>
-            3. 水素イオンの濃度勾配を利用して、最終的に <input type="text" id="q3-3"> 酵素が回転することでATPが合成される。
-        </div>
-        <button onclick="checkQ3()">答え合わせ</button>
-        <div id="res3" class="result"></div>
-    </div>
+<p class="select-p level-4">確認問題選択：
+	<select class="exam-num level-4">
+		<option value="0">ホーム</option>
+		<option value="1">第1週</option>
+		<option value="2">第2週</option>
+		<option value="3">第3週</option>
+		<option value="4">第4週</option>
+		<option value="5">第5週</option>
+		<option value="6">第6週</option>
+		<option value="7">第7週</option>
+		<option value="8">第8週</option>
+		<option value="9">第9週</option>
+		<option value="10">第10週</option>
+		<option value="11">第11週</option>
+	</select>
+</p>
 
-    <div class="question-block">
-        <h2>問題4. 光合成（明反応・暗反応） p.33</h2>
-        <div class="q-text">
-            1. 光合成の前半（明反応）は、 <input type="text" id="q4-1"> のチラコイド膜で行われる。<br>
-            2. 光合成色素の <input type="text" id="q4-2"> や <input type="text" id="q4-3"> は、主に赤色や青色の光を吸収する。<br>
-            3. 後半の暗反応はストロマで進む。明反応で合成されたATPなどのエネルギーを利用して<input type="text" id="q4-4"> が回り、 <input type="text" id="q4-5"> を吸収して有機物を合成する。
-        </div>
-        <button onclick="checkQ4()">答え合わせ</button>
-        <div id="res4" class="result"></div>
-    </div>
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "問題1. 細胞の接着 p.45",
+        questions: [
+            {
+                text: [
+                    "細胞が同じ種類の細胞を選んで接着することを [] という。",
+                    "カドヘリンは細胞外ドメインが [] な立体構造をもつため、同じ種類どうしで結合する。",
+                    "上皮組織において、水などの小分子も通さない強固な接着を [] という。",
+                ],
+                answers: ["選択的細胞接着", "相補的", "密着結合"]
+            }
+        ]
+    },
+    {
+        title: "問題2. ATPの構造と性質 p.25",
+        questions: [
+            {
+                text: [
+                    "複雑な物質を分解してエネルギーを得る過程を [] といい、その逆を [] という。<br>",
+                    "生命活動におけるエネルギーの移動には [] (正式名称で)が重要な働きをしている。<br>",
+                    "[ 2.の答え ] は核酸（ヌクレオチド）の一種であり、塩基の [] と、五炭糖の [] 、3つのリン酸からなる。",
+                    "リン酸どうしの結合のうち、大きなエネルギーを蓄えている部分を [] リン酸結合という。",
+                ],
+                answers: ["異化", "同化", "アデノシン三リン酸", "アデニン", "リボース", "高エネルギー"]
+            }
+        ]
+    },
+    {
+        title: "問題3. 呼吸によるATP生成 p.26",
+        questions: [
+            {
+                text: [
+                    "酸素を利用してATPを生産する反応を [] といい、解糖系、クエン酸回路、電子伝達系の3過程がある。",
+                    "クエン酸回路はミトコンドリアの [] で進行する。",
+                    "水素イオンの濃度勾配を利用して、最終的に [] 酵素が回転することでATPが合成される。",
+                ],
+                answers: ["呼吸", "マトリックス", "ATP合成"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 光合成（明反応・暗反応） p.33",
+        questions: [
+            {
+                text: [
+                    "光合成の前半（明反応）は、 [] のチラコイド膜で行われる。<br>",
+                    "光合成色素の [] や [] は、主に赤色や青色の光を吸収する。<br>",
+                    "後半の暗反応はストロマで進む。明反応で合成されたATPなどのエネルギーを利用して [] が回り、 [] を吸収して有機物を合成する。",
+                ],
+                answers: ["葉緑体", "クロロフィル", "カロテノイド", "カルビン回路", "二酸化炭素"]
+            }
+        ]
+    },
+    {
+        title: "問題5. 物質の循環と窒素利用 p.37",
+        questions: [
+            {
+                text: [
+                    "無機物から有機物を合成する「生産者」とは、具体的に [] や藻類のことである。",
+                    "「消費者」は有機物を [] して無機物にする。これにより、物質は循環する<br>",
+                    "植物が無機窒素化合物から有機窒素化合物を合成することを窒素 [] という。<br>",
+                    "根粒菌などが気体の窒素をアンモニウムイオンに変える反応を窒素 [] という。",
+                ],
+                answers: ["植物", "分解", "同化", "固定"]
+            }
+        ]
+    }
+];
 
-    <div class="question-block">
-        <h2>問題5. 物質の循環と窒素利用 p.37</h2>
-        <div class="q-text">
-            1. 無機物から有機物を合成する「生産者」とは、具体的に <input type="text" id="q5-1"> や藻類のことである。<br>
-            2. 「消費者」は有機物を <input type="text" id="q5-2"> して無機物にする。これにより、物質は循環する<br>
-            2. 植物が無機窒素化合物から有機窒素化合物を合成することを窒素 <input type="text" id="q5-3"> という。<br>
-            3. 根粒菌などが気体の窒素をアンモニウムイオンに変える反応を窒素 <input type="text" id="q5-4"> という。
-        </div>
-        <button onclick="checkQ5()">答え合わせ</button>
-        <div id="res5" class="result"></div>
-    </div>
+</script>
 
-    <p class="select-p">確認問題選択：
-        <select id="exam-num1">
-            <option value="0">ホーム</option>
-            <option value="1">第1回</option>
-            <option value="2">第2回</option>
-            <option value="3">第3回</option>
-            <option value="4" selected>第4回</option>
-            <option value="5">第5回</option>
-            <option value="6">第6回</option>
-            <option value="7">第7回</option>
-            <option value="8">第8回</option>
-            <option value="9">第9回</option>
-            <option value="10">第10回</option>
-            <option value="11">第11回</option>
-        </select>
-    </p>
-
-    <script>
-        function checkQ1() {
-            const v1 = document.getElementById('q1-1').value.trim();
-            const v2 = document.getElementById('q1-2').value.trim();
-            const v3 = document.getElementById('q1-3').value.trim();
-            showResult('res1', (v1 === '選択的細胞接着' && v2 === '相補的' && v3 === '密着結合'), ['選択的細胞接着', '相補的', '密着結合']);
-        }
-
-        function checkQ2() {
-            const v1 = document.getElementById('q2-1').value.trim();
-            const v2 = document.getElementById('q2-2').value.trim();
-            const v3 = document.getElementById('q2-3').value.trim();
-            const v4 = document.getElementById('q2-4').value.trim();
-            const v5 = document.getElementById('q2-5').value.trim();
-            const v6 = document.getElementById('q2-6').value.trim();
-            showResult('res2', (v1 === '異化' && v2 === "同化" && v3 === "アデノシン三リン酸" && v4 === 'アデニン' && v5 === 'リボース' && v6 === '高エネルギー'), ['異化', "同化", "アデノシン三リン酸", 'アデニン', 'リボース', '高エネルギー']);
-        }
-
-        function checkQ3() {
-            const v1 = document.getElementById('q3-1').value.trim();
-            const v2 = document.getElementById('q3-2').value.trim();
-            const v3 = document.getElementById('q3-3').value.trim();
-            showResult('res3', (v1 === '呼吸' && v2 === 'マトリックス' && v3 === 'ATP合成'), ['呼吸', 'マトリックス', 'ATP合成']);
-        }
-
-        function checkQ4() {
-            const v1 = document.getElementById('q4-1').value.trim();
-            const v2 = document.getElementById('q4-2').value.trim();
-            const v3 = document.getElementById('q4-3').value.trim();
-            const v4 = document.getElementById('q4-4').value.trim();
-            const v5 = document.getElementById('q4-5').value.trim();
-            showResult('res4', (v1 === '葉緑体' && v2 === 'クロロフィル' && v3 === "カロテノイド" && v4 === "カルビン回路" && v5 === '二酸化炭素'), ['葉緑体', 'クロロフィル', "カロテノイド", "カルビン回路", '二酸化炭素']);
-        }
-
-        function checkQ5() {
-            const v1 = document.getElementById('q5-1').value.trim();
-            const v2 = document.getElementById('q5-2').value.trim();
-            const v3 = document.getElementById('q5-3').value.trim();
-            const v4 = document.getElementById('q5-4').value.trim();
-            showResult('res5', (v1.includes('植物') && v2 === "分解" && v3 === '同化' && v4 === '固定'), ['植物', "分解", '同化', '固定']);
-        }
-    </script>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/transfer.js"></script>
+<script src="./scripts/transfer.js"></script>
+<script src="./scripts/main.js"></script>
 
 </body>
 </html>
