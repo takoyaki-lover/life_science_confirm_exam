@@ -1,7 +1,7 @@
-body {font-family: Arial, sans-serif}
+body {font-family: Arial, sans-serif; max-width: 890px;}
 
 @media screen and (min-width: 900px) { /*for PC*/
-    body {max-width: 890px; margin: 8px auto 40px; background-color: #f4f7f6;}
+    body {margin: 8px auto 40px; background-color: #f4f7f6;}
     .level-1 {font-size: 32px;}
     .level-2 {font-size: 24px;}
     .level-3 {font-size: 20px;}
@@ -10,9 +10,9 @@ body {font-family: Arial, sans-serif}
     h2 {margin: 0 0 14px; padding: 0 0 7px; color: #2c3e50; border-bottom: 2px solid #27ae60;}
     .select-p {margin: 0 0 15px;}
     .exam-num {width: auto; height: 25px;}
-    .section-block {margin: 0 0 30px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .section-block {margin: 0 0 30px; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 4px rgba(0,0,0,0.1); }
     .q-text {margin: 0 0 12px; color: #333;}
-    input[type="text"] {margin: 0; padding: 5px 6px; width: 140px; border: 2px solid #ddd; border-radius: 4px; transition: border-color 0.3s;}
+    input[type="text"] {margin: 0; padding: 5px 6px; width: 140px; border: 2px solid #ddd; border-radius: 4px;}
     textarea {margin: 0 0 10px; padding: 10px; width: calc(100% - 24px); height: 80px; border: 2px solid #ddd; border-radius: 4px; resize: vertical; transition: border-color 0.3s;}
     .btn-check, .btn-close {padding: 7px 20px; background: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;}
     .btn-check {margin: 8px 0 0;}
@@ -24,7 +24,7 @@ body {font-family: Arial, sans-serif}
 }
 
 @media screen and (min-width: 550px) and (max-width: 900px) { /*for Tablet*/
-    body {max-width: 890px; margin: 8px 10px 40px; background-color: #f4f7f6;}
+    body {margin: 8px 10px 40px; background-color: #f4f7f6;}
     .level-1 {font-size: 28px;}
     .level-2 {font-size: 24px;}
     .level-3 {font-size: 20px;}
@@ -35,7 +35,7 @@ body {font-family: Arial, sans-serif}
     .exam-num {width: auto; height: 25px;}
     .section-block {margin: 0 0 30px; padding: 16px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .q-text {margin: 0 0 12px; color: #333;}
-    input[type="text"] {margin: 0; padding: 5px 6px; border: 2px solid #ddd; border-radius: 4px; width: 140px; transition: border-color 0.3s;}
+    input[type="text"] {margin: 0; padding: 5px 6px; border: 2px solid #ddd; border-radius: 4px; width: 140px;}
     textarea {margin: 0 0 10px; padding: 10px; width: calc(100% - 24px); height: 80px; border: 2px solid #ddd; border-radius: 4px; resize: vertical; transition: border-color 0.3s;}
     .btn-check, .btn-close {padding: 7px 20px; background: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;}
     .btn-check {margin: 8px 0 0;}
@@ -47,7 +47,7 @@ body {font-family: Arial, sans-serif}
 }
 
 @media screen and (max-width: 550px) { /*for smartphone*/
-    body {max-width: 890px; margin: 8px 5px 40px; background-color: #f4f7f6;}
+    body {margin: 8px 5px 40px; background-color: #f4f7f6;}
     .level-1 {font-size: 24px;}
     .level-2 {font-size: 20px;}
     .level-3 {font-size: 16px;}
@@ -58,7 +58,7 @@ body {font-family: Arial, sans-serif}
     .exam-num {width: auto; height: 25px;}
     .section-block {margin: 0 0 30px; padding: 10px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .q-text {margin: 0 0 10px; color: #333;}
-    input[type="text"] {margin: 0; padding: 3px 5px; border: 2px solid #ddd; border-radius: 4px; width: 100px; transition: border-color 0.3s;}
+    input[type="text"] {margin: 0; padding: 3px 5px; border: 2px solid #ddd; border-radius: 4px; width: 100px;}
     textarea {margin: 0 0 10px; padding: 10px; width: calc(100% - 24px); height: 80px; border: 2px solid #ddd; border-radius: 4px; resize: vertical; transition: border-color 0.3s;}
     .btn-check, .btn-close {padding: 6px 16px; background: #27ae60; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;}
     .btn-check {margin: 5px 0 0;}
@@ -69,10 +69,10 @@ body {font-family: Arial, sans-serif}
     .ans-list, .sample-answer {margin: 7px 0 0;}
 }
 
-input[type="text"], textarea {transition: border-color 0.3s, outline 0.3s, outline-color 0s;}
-input[type="text"]:hover {border-color: #a4a9a2;}
-textarea:focus {border-color: #0f0f0f; outline: 0}
-input[type="text"]:hover:focus, input[type="text"]:focus {border-color: #27ae60; outline: 1px solid #27ae60;}
+input[type="text"], textarea {outline: #27ae60; transition: border-color 0.3s, background-color 0.1s, outline 0.3s;}
+input[type="text"]:hover, textarea:hover {border-color: #a4a9a2;}
+input[type="text"]:focus, textarea:focus {border-color: #27ae60; outline: 0; background-color: #f4fff9}
+input[type="text"]:focus {border-color: #27ae60; outline: 1px solid #27ae60;}
 
 .btn-check:hover, .btn-close:hover {background: #23a057;}
 .btn-check:active, .btn-close:active {background: #219150;}
