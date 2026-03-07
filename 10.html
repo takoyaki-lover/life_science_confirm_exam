@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 10; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "恒常性とホルモン p.104",
+        text: [
+            "脊椎動物の恒常性は内分泌系と [] 系によって保たれる。",
+            "ホルモンが作用する特定の器官を [] 器官という。",
+            "ホルモンが作用するためには、細胞にそのホルモンに対応する [] が必要である。",
+        ],
+        answers: ["自律神経", "標的", "受容体"]
+    },
+    {
+        title: "免疫系 p.115",
+        text: [
+            "免疫には、生まれつき備わっている自然免疫と、後天的な [] 免疫がある。",
+            "抗体が中心となって働く免疫を [] 免疫という。",
+            "T細胞が感染細胞を直接攻撃する免疫を [] 免疫という。",
+        ],
+        answers: ["獲得", "体液性", "細胞性"]
+    },
+    {
+        title: "抗原提示 p.116",
+        text: [
+            "抗原情報をヘルパーT細胞に伝える分子は [] (クラスII) である。",
+            "全ての細胞が持つ、細胞内のタンパク質断片を提示する分子は [] (クラスI) である。",
+            "MHCクラスIに提示された異常な抗原を認識して攻撃するのは [] T細胞である。",
+        ],
+        answers: ["MHC", "MHC", "キラー"]
+    },
+    {
+        title: "DNAの損傷と修復 p.123",
+        text: [
+            "突然変異を引き起こす物理的・化学的作用原を [] という。",
+            "紫外線によるピリミジン二量体のような歪みは、 [] 除去修復によって直される。",
+            "DNAの2本鎖切断は、非相同末端結合や [] 組換えによって修復される。",
+        ],
+        answers: ["変異原", "ヌクレオチド", "相同"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 2; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "タンパク質の基本構造 p.5",
+        text: [
+            "タンパク質は多数の [] がペプチド結合でつながった構造をしている。",
+            "上記の分子は1つの炭素原子に水素、[] 、カルボキシ基と側鎖が結合した構造を持つ。",
+            "タンパク質（ポリペプチド）には [] という方向性がある。"
+        ],
+        answers: ["アミノ酸", "アミノ基", "N-C"]
+    },
+    {
+        title: "タンパク質の立体構造(1次〜2次) p.10",
+        text: [
+            "タンパク質の [] のことを1次構造とよぶ。",
+            "分子内のアミノ酸どうしが [] 結合によって形成する部分的な構造を2次構造とよぶ。",
+            "2次構造には α- [] や β-シートがある。"
+        ],
+        answers: ["アミノ酸配列", "水素", "ヘリックス"]
+    },
+    {
+        title: "タンパク質の立体構造(3次〜4次) p.11",
+        text: [
+            "1本のポリペプチドがとっている全体の構造を3次構造といい、複数のポリペプチドからなる構造を [] 次構造という。",
+            "4次構造をとるタンパク質ではそれぞれのポリペプチド鎖は [] とよばれる。",
+            "1つのタンパク質にある、50〜200個程度のアミノ酸からなる機能単位を [] とよぶ。"
+        ],
+        answers: ["4", "サブユニット", "ドメイン"]
+    },
+    {
+        title: "酵素反応 p.19",
+        text: [
+            "酵素は生体反応を進める [] である。",
+            "特定の酵素が特定の基質とだけ作用する性質を [] 特異性とよぶ。",
+            "酵素内で [ 2.の答え ] と結合する領域を [] という。"
+        ],
+        answers: ["触媒", "基質", "活性部位"]
+    },
+    {
+        title: "酵素活性と調節 p.22",
+        text: [
+            "酵素が最も高い活性を示す温度やpHをそれぞれ [] 温度、 [ 1.の答え ] pHという。",
+            "基質と似た構造をもつ物質が活性部位を奪い合って阻害することを [] 的阻害という。",
+            "最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを [] 調節という。"
+        ],
+        answers: ["最適", "競争", "フィードバック"]
+    }
+]
+/*
+const quizData = [
+    {
+        title: "問題1. タンパク質の基本構造 p.5",
+        questions: [
+            {
+                text: "タンパク質は多数の [] がペプチド結合でつながった構造をしている。",
+                answers: ["アミノ酸"]
+            },
+            {
+                text: "上記の分子は1つの炭素原子に水素、[] 、カルボキシ基、と側鎖が結合した構造を持つ。",
+                answers: ["アミノ基"]
+            },
+            {
+                text: "タンパク質（ポリペプチド）には [] という方向性がある。",
+                answers: ["N-C"]
+            }
+        ]
+    },
+    {
+        title: "問題2. タンパク質の立体構造(1次〜2次) p.10",
+        questions: [
+            {
+                text: "タンパク質の [] のことを1次構造とよぶ。",
+                answers: ["アミノ酸配列"]
+            },
+            {
+                text: "分子内のアミノ酸どうしが [] 結合によって形成する部分的な構造を2次構造とよぶ。",
+                answers: ["水素"]
+            },
+            {
+                text: "2次構造には α- [] や β-シートがある。",
+                answers: ["ヘリックス"]
+            }
+        ]
+    },
+    {
+        title: "問題3. タンパク質の立体構造(3次〜4次) p.11",
+        questions: [
+            {
+                text: "1本のポリペプチドがとっている全体の構造を3次構造といい、複数のポリペプチドからなる構造を [] 次構造という。",
+                answers: ["4"]
+            },
+            {
+                text: "4次構造をとるタンパク質ではそれぞれのポリペプチド鎖は [] とよばれる。",
+                answers: ["サブユニット"]
+            },
+            {
+                text: "1つのタンパク質にある、50〜200個程度のアミノ酸からなる機能単位を [] とよぶ。",
+                answers: ["ドメイン"]
+            }
+        ]
+    },
+    {
+        title: "問題4. 酵素反応 p.19",
+        questions: [
+            {
+                text: "酵素は生体反応を進める [] である。",
+                answers: ["触媒"]
+            },
+            {
+                text: "特定の酵素が特定の基質とだけ作用する性質を [] 特異性とよぶ。",
+                answers: ["基質"]
+            },
+            {
+                text: "酵素内で [2の答え] と結合する領域を [] という。",
+                answers: ["活性部位"]
+            }
+        ]
+    },
+    {
+        title: "問題5. 酵素活性と調節 p.22",
+        questions: [
+            {
+                text: "酵素が最も高い活性を示す温度やpHをそれぞれ [] 温度、 [ 1 ] pHという。",
+                answers: ["最適"]
+            },
+            {
+                text: "基質と似た構造をもつ物質が活性部位を奪い合って阻害することを [] 的阻害という。",
+                answers: ["競争"]
+            },
+            {
+                text: "最終産物が初めの反応をする酵素のアロステリック部位に結合して調節することを [] 調節という。",
+                answers: ["フィードバック"]
+            }
+        ]
+    },
+];
+*/
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

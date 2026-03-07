@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 11; // 第何週目であるか
+	</script>
+</head>
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    // {
+    //     title: "例題　三浦元喜について",
+    //     images: ["miura_running.png"],
+    //     questions: [
+    //         {
+    //             images: ["miura-attendance_s.png"],
+    //             text: "三浦元喜はどのような人物であるか、簡潔に説明しなさい。",
+    //             sampleAnswer: "千葉工業大学のヤンキー学部ヤンキー工学科の教授。主にマコモについて研究している。マコモ研究室と呼ばれることもある。",
+    //         }
+
+    //     ]
+    // },
+    {
+        title: "初期化（リプログラミング）とは",
+        questions: [
+            {
+                text: "ガードン博士や山中博士の研究キーワードである「初期化」とはどのようなことか、簡潔に説明しなさい。",
+                keyword: "分化、体細胞、多能性",
+                sampleAnswer: "いったん分化した体細胞や体細胞由来の細胞核に、再び分化の多能性を与えること。",
+            }
+        ]
+    },
+    {
+        title: "倫理上の問題の回避",
+        questions: [
+            {
+                text: "ES細胞と比べ、iPS細胞はなぜ倫理上の問題を回避できると考えられるか、簡潔に説明しなさい。",
+                keyword: "胚盤胞、生命、体細胞",
+                sampleAnswer: "ES細胞は生命の萌芽である胚盤胞を破壊して作る必要があるが、iPS細胞は（皮膚などの）体細胞から作製できるため、胚を破棄する必要がないから。",
+            }
+        ]
+    },
+    {
+        title: "拒絶反応の回避",
+        questions: [
+            {
+                text: "移植医療において、iPS細胞がES細胞よりも拒絶反応を回避しやすいのはなぜか、簡潔に説明しなさい。",
+                keyword: "患者本人、由来",
+                sampleAnswer: "ES細胞は他人に由来する細胞であるが、iPS細胞は移植を受ける患者本人の細胞から作製できるため、自己免疫による拒絶反応が起こる可能性が低いから。",
+            }
+        ]
+    }
+];
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/essay.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

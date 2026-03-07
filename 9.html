@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 9; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "配偶者と受精 p.89",
+        text: [
+            "精子の頭部には、精核のほかに酵素を含む [] がある。",
+            "精子の膜と [ 1.の答え ] の外膜が融合し、内容物が放出される過程を [] 反応という。",
+            "受精から成体になるまでの一連の過程を [] といい、体の形を作ることを [] という。",
+        ],
+        answers: ["先体", "先体", "発生", "形態形成"]
+    },
+    {
+        title: "ウニの初期発生 p.91",
+        text: [
+            "ウニの発生で、陥入が始まる地点を [] という。",
+            "陥入によって形成される袋状の構造を [] といい、この時期の胚を [ 2 ] 胚とよぶ。",
+            "将来、筋肉や骨に分化するのは [] 胚葉である。",
+        ],
+        answers: ["原口", "原腸", "中"]
+    },
+    {
+        title: "哺乳類（ヒト）の発生 p.94",
+        text: [
+            "ヒトでは、卵管の上部で受精したのち、胚は卵割しながら下降し、約7日で子宮に [] する。",
+            "128細胞期の胚は、内部にある [] と、周囲の栄養外胚葉からなる。",
+        ],
+        answers: ["着床", "内部細胞塊"]
+    },
+    {
+        title: "分化と誘導 p.96",
+        text: [
+            "近接した領域の影響によって細胞の運命が決定される現象を [] という。",
+            "[ 1.の答え ] の能力を持つ領域（例：原口背唇部）を [] という。",
+            "内胚葉が中胚葉を形成させる働きかけを [] 誘導という。",
+        ],
+        answers: ["誘導", "オーガナイザー", "中胚葉"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 7; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "遺伝子組換えの基礎 p.72",
+        text: [
+            "日本国内で遺伝子組換え生物を扱う実験は、 [] 法の規則に従って実施される。",
+            "プラスミドやウイルスのように、遺伝子の運び屋として利用されるものを [] という。",
+            "プラスミドには、ゲノムDNAとは独立して複製するために [] (ori) とよばれる配列が含まれる。",
+        ],
+        answers: ["カルタヘナ", "ベクター", "複製起点"]
+    },
+    {
+        title: "DNAを切断する酵素 p.71",
+        text: [
+            "DNAを特定の位置で切るために利用する酵素を [] という。",
+            "多くの [ 1.の答え ] が認識する配列は、前から読んでも後ろから読んでも同じ [] 配列になっている。",
+            "切断されたDNAの末端で、1本鎖が突き出した部分を [] 末端という。",
+            "[ 3.の答え ] してない部分を [] 末端という。",
+        ],
+        answers: ["制限酵素", "回文", "突出", "平滑"]
+    },
+    {
+        title: "PCR（ポリメラーゼ連鎖反応）",
+        text: [
+            "増幅したい部分の両端に結合させる短い核酸を [] という。",
+            "PCRで使用するDNAポリメラーゼは、100℃でも失活しない [] 菌由来のものを用いる。",
+            "DNA合成の基質（材料）として反応系に含まれる4種類のヌクレオチドを [] という。",
+            "PCRのサイクルにおいて、DNAを熱変性させる温度は、約 [] ℃である。",
+            "DNAポリメラーゼの最適温度はおよそ [] ℃であり、合成反応を開始させるのは [] ℃である。",
+        ],
+        answers: ["プライマー", "好熱", "dNTP", "95", "72", "55"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 4; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "細胞の接着 p.45",
+        text: [
+            "細胞が同じ種類の細胞を選んで接着することを [] という。",
+            "カドヘリンは細胞外ドメインが [] な立体構造をもつため、同じ種類どうしで結合する。",
+            "上皮組織において、水などの小分子も通さない強固な接着を [] という。",
+        ],
+        answers: ["選択的細胞接着", "相補的", "密着結合"]
+    },
+    {
+        title: "ATPの構造と性質 p.25",
+        text: [
+            "複雑な物質を分解してエネルギーを得る過程を [] といい、その逆を [] という。<br>",
+            "生命活動におけるエネルギーの移動には [] (正式名称で)が重要な働きをしている。<br>",
+            "[ 2.の答え ] は核酸（ヌクレオチド）の一種であり、塩基の [] と、五炭糖の [] 、3つのリン酸からなる。",
+            "リン酸どうしの結合のうち、大きなエネルギーを蓄えている部分を [] リン酸結合という。",
+        ],
+        answers: ["異化", "同化", "アデノシン三リン酸", "アデニン", "リボース", "高エネルギー"]
+    },
+    {
+        title: "呼吸によるATP生成 p.26",
+        text: [
+            "酸素を利用してATPを生産する反応を [] といい、解糖系、クエン酸回路、電子伝達系の3過程がある。",
+            "クエン酸回路はミトコンドリアの [] で進行する。",
+            "水素イオンの濃度勾配を利用して、最終的に [] 酵素が回転することでATPが合成される。",
+        ],
+        answers: ["呼吸", "マトリックス", "ATP合成"]
+    },
+    {
+        title: "光合成（明反応・暗反応） p.33",
+        text: [
+            "光合成の前半（明反応）は、 [] のチラコイド膜で行われる。<br>",
+            "光合成色素の [] や [] は、主に赤色や青色の光を吸収する。<br>",
+            "後半の暗反応はストロマで進む。明反応で合成されたATPなどのエネルギーを利用して [] が回り、 [] を吸収して有機物を合成する。",
+        ],
+        answers: ["葉緑体", "クロロフィル", "カロテノイド", "カルビン回路", "二酸化炭素"]
+    },
+    {
+        title: "物質の循環と窒素利用 p.37",
+        text: [
+            "無機物から有機物を合成する「生産者」とは、具体的に [] や藻類のことである。",
+            "「消費者」は有機物を [] して無機物にする。これにより、物質は循環する<br>",
+            "植物が無機窒素化合物から有機窒素化合物を合成することを窒素 [] という。<br>",
+            "根粒菌などが気体の窒素をアンモニウムイオンに変える反応を窒素 [] という。",
+        ],
+        answers: ["植物", "分解", "同化", "固定"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 5; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "細胞周期 p.48",
+        text: [
+            "細胞周期のうち、分裂期（M期）以外の時期を [] とよぶ。",
+            "複製された直後の、2本の同じ染色体のセットを [] という。",
+            "終期には、染色体がほどけて核膜の [] が起きる。",
+            "DNA複製が起きている時期は [] 期である。",
+        ],
+        answers: ["間期", "姉妹染色分体", "再形成", "S"]
+    },
+    {
+        title: "細胞分裂 p.48",
+        text: [
+            "細胞分裂の際、両極の [] から伸びた微小管が [] を形成する。",
+            "2本の姉妹染色分体が結合した部分(セントロメア)にある [] という部分に微小管が結合する。",
+            "M期の [] 期になると、染色体は赤道面に並ぶ。",
+        ],
+        answers: ["中心体", "紡錘体", "動原体", "中"]
+    },
+    {
+        title: "細胞周期の制御 p.51",
+        text: [
+            "細胞周期の各期に特異的に現れるサイクリンがCdkと結合することでCdkが [] 活性をもち、細胞周期が進行する。",
+            "細胞周期の進行状況はチェックポイント機構が監視している。その役割は、DNAに [] がないかチェックすることである。",
+            "G₁/Sチェックポイントで働く [] と呼ばれるたんぱく質はがん抑制遺伝子として知られる。",
+        ],
+        answers: ["キナーゼ", "損傷", "p53"]
+    },
+    {
+        title: "DNA複製の開始 p.54",
+        text: [
+            "元の鎖を鋳型にして新しい鎖が合成されるため、 [] 複製と呼ばれる。",
+            "複製が開始されるDNA上の位置を [] という。",
+            "2本鎖を開裂させる活性を持つ酵素は [] である。",
+            "DNAがほどけて開いている部分は、その形状から複製 [] とよばれる。",
+        ],
+        answers: ["半保存的", "複製起点", "ヘリカーゼ", "フォーク"]
+    },
+    {
+        title: "DNAポリメラーゼの働き p.56",
+        text: [
+            "DNA合成の材料となる4種類のヌクレオチドを総称して [] とよぶ。",
+            "DNA合成の開始点となる短いRNA鎖を [] という。",
+            "5'→3'方向に連続的に合成されるDNA鎖を [] 鎖とよぶ。",
+            "[ 3.の答え ] 鎖と逆向きに複製される鎖を [] 鎖とよび、そこで作られる短いDNA断片を [] という。",
+        ],
+        answers: ["dNTP", "プライマー", "リーディング", "ラギング", "岡崎フラグメント"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

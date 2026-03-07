@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 3; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "タンパク質の基本構造 p.5",
+        text: [
+            "細胞小器官のうち、核・ミトコンドリア・葉緑体は [] の生体膜で包まれている。",
+            "一方、小胞体・ゴルジ体・リソソームは [] の生体膜で包まれている。",
+            "リボソームや [] は生体膜に包まれていない。",
+            "[] の一部がくびれて輸送小胞になり、ゴルジ体と融合することで物質が運ばれる。",
+            "最終的に、小胞が細胞膜と融合し、内部の物質が細胞外に [] される。"
+        ],
+        answers: ["二重", "一重", "中心体", "小胞体", "分泌"]
+    },
+    {
+        title: "DNAの構造と凝縮 p.15",
+        text: [
+            "DNAがヒストンというタンパク質に巻き付いた構造の基本単位を [] とよぶ。",
+            "[ 1.の答え ] が連なり、さらに折りたたまれて凝縮した構造を [] という。"
+        ],
+        answers: ["ヌクレオソーム", "クロマチン"]
+    },
+    {
+        title: "生体膜と物質の透過 p.39",
+        text: [
+            "特定の物質を膜透過させるタンパク質のうち、[] とよばれるシグナル分子で開閉するものを [ 1.の答え ] 依存性チャネルという。<br>",
+            "チャネルが開いているときは [] に従って受動輸送し、特定の物質が膜を通過する。<br>",
+            "一方、ナトリウムポンプなどはエネルギーを使い、 [ 2.の答え ] に逆らって物質を透過させる。このようなエネルギーを必要とする輸送を [] 輸送という。",
+        ],
+        answers: ["リガンド", "濃度勾配", "能動"]
+    },
+    {
+        title: "細胞骨格 p.42",
+        text: [
+            "細胞骨格のうち、直径が約25nmでチューブリンからなるものを [] という。",
+            "細胞骨格のうち、直径が約7nmで右巻き二重らせんで繊維状であるものを [] という。",
+            "細胞骨格は、タンパク質が [] することで長い繊維状の構造をとる。",
+            "細胞骨格を足場として動くタンパク質を [] タンパク質という。",
+        ],
+        answers: ["微小管", "アクチンフィラメント", "重合", "モーター"]
+    },
+    {
+        title: "モータータンパク質 p.44",
+        text: [
+            "アクチンフィラメントの上を動くモータータンパク質は [] である。<br>",
+            "微小管の上を動くモータータンパク質は、 [] と [] である。",
+            "細胞骨格の中で、対応するモータータンパク質が存在しないのは [] フィラメントである。",
+        ],
+        answers: ["ミオシン", "ダイニン", "キネシン", "中間径"]
+    }
+]
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

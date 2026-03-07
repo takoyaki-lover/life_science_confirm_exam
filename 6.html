@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 6; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    {
+        title: "セントラルドグマ p.58",
+        text: [
+            "DNAからRNAを合成する段階を [] という。",
+            "RNAの情報からタンパク質を合成する段階を [] という。",
+            "DNAやmRNAでは、情報は [] として書き込まれている。",
+            "タンパク質では、その情報は [] 配列に変換されている。",
+        ],
+        answers: ["転写", "翻訳", "塩基配列", "アミノ酸"]
+    },
+    {
+        title: "遺伝情報の発現（転写） p.58",
+        text: [
+            "DNAの長さやゲノムサイズを表す単位は [] (bp) である。",
+            "転写の開始点と方向の情報を持つDNA配列を [] という。",
+            "真核生物の [ 2.の答え ] には、 [] とよばれる「TATAAAA」の配列が含まれることが多い。",
+            "転写を行う酵素は [] ポリメラーゼである。",
+        ],
+        answers: ["塩基対", "プロモーター", "TATAボックス", "RNA"]
+    },
+    {
+        title: "RNAプロセシング p.60",
+        text: [
+            "転写直後のRNAから、タンパク質をコードしない [] という領域を取り除く。",
+            "この取り除く過程を [] という。<br>",
+            "残った、タンパク質をコードする領域を [] という。",
+        ],
+        answers: ["イントロン", "スプライシング", "エキソン"]
+    },
+    {
+        title: "翻訳の仕組み p.62",
+        text: [
+            "mRNA上の連続した3つの塩基を [] という。",
+            "アミノ酸を運ぶRNAを [] という。",
+            "[ 2.の答え ]が持つ、mRNAの塩基配列と相補的に結合する部分を [] という。",
+            "翻訳の開始を指令する配列を [] コドンという。",
+            "翻訳は細胞小器官の [] で実行される。",
+            "[ 5.の答え ]の成分となって機能しているRNAが [] である。",
+            "合成途中のたんぱく質のN末端に [] へ移行を指示するシグナルペプチドがあると、シグナル認識粒子が結合し、 [ 7.の答え ] 膜に結合できるようになり、結果として粗面 [ 7.の答え ] となる。つまり、タンパク質の合成は細胞質基質中の遊離の [ 5.の答え ] で始まる。",
+        ],
+        answers: ["コドン", "tRNA", "アンチコドン", "開始", "リボソーム", "rRNA", "小胞体"]
+    },
+    {
+        title: "転写調整 p.67",
+        text: [
+            "各遺伝子の転写調節領域のうち転写を活性化する転写因子が結合する領域を [] とよぶ。一方、抑制する転写因子が結合する領域は [] と呼ぶ。",
+            "細胞が、特定の働きを持つ細胞になることを [] という。細胞が [ 2.の答え ] するのは、それぞれ特定の遺伝子が発現するからである。",
+            "すべての体細胞で発現する遺伝子を [] 遺伝子という。",
+        ],
+        answers: ["エンハンサー", "サイレンサー", "分化", "ハウスキーピング"]
+    }
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>

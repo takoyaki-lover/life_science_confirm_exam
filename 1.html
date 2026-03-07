@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title id="page-title">生命科学 確認問題</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.5">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/modal.css">
+	<script>
+		let num = 1; // 第何週目であるか
+	</script>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+    <header></header>
+
+    <div class="main-body-wrap">
+        <h1 id="top" class="title level-1">生命科学 確認問題</h1>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <div id="quiz-container"></div>
+
+        <div class="select-wrap">
+            <span class="select-label level-4">確認問題選択:</span>
+            <select class="exam-num level-4"></select>
+        </div>
+
+        <p class="go-to-top level-4"><a href="#top">ページの一番上へ戻る</a></p>
+
+        <!-- modal -->
+        <div id="image-modal" class="modal-wrap">
+            <div id="modal-inner" class="modal-image-wrap" title="クリックして閉じる">
+                <img id="modal-inner-image" alt="画像が読み込めませんでした">
+            </div>
+            <div id="drag-bar" class="drag-bar">
+                <div class="drag-icon-wrap">
+                    <div class="drag-icon-stick"></div>
+                    <div class="drag-icon-stick"></div>
+                </div>
+            </div>
+        </div>
+        <!-- end of modal -->
+
+    </div>
+
+    <footer></footer>
+
+</div>
+
+<script>
+//
+// 問題データ
+//
+const quizData = [
+    // {
+    //     title: "例題",
+    //     images: ["miura_running.png"],
+    //     questions: [
+    //         {
+    //             title: "計算しなさい。",
+    //             images: ["nakabayashi_drunk.png"],
+    //             text: [
+    //                 "1 + 1 = [] ",
+    //                 "∫₀¹ 2x dx = []"
+    //             ],
+    //             answers: ["2", "1"]
+    //         },
+    //         {
+    //             images: ["miura-attendance_s.png", "miura_running.png"],
+    //             title: "次の方程式を解け。",
+    //             text: [
+    //                 "x² - 3x + 2 = 0 の解は小さい順に [] と [] である。",
+    //                 "x² + 3x - 10 の解は小さい順に [] と [] である。",
+    //                 "x² - 13x + 42 の解は小さい順に [] と [] である。"
+    //             ],
+    //             answers: ["1", "2", "-5", "2", "6", "7"]
+    //         }
+    //     ]
+    // },
+    {
+        title: "生体を構成する元素・分子 p.4",
+        text: [
+            "生体物質を構成する元素の中で [] は原子の数として9.4%を占めるが、地殻中では0.03%しか存在しない。",
+            "[ 1.の答え ] を含む化合物を [] といい、核酸・糖質などのように基本的な単位がいくつも連結してできているものが多い。"
+        ],
+        answers: ["炭素", "有機物"]
+    },
+    {
+        title: "タンパク質 p.5",
+        text: [
+            "タンパク質は多数のアミノ酸が [] 結合でつながったポリ [ 1.の答え ] である。",
+            "タンパク質を構成するアミノ酸は20種類あり、[] の違いによってアミノ酸の性質が異なる。"
+        ],
+        answers: ["ペプチド", "側鎖"]
+    },
+    {
+        title: "脂質 p.6",
+        text: [
+            "脂質のうち [] 脂質は、グリセロールに2本の脂肪酸と1つの [ 1.の答え ] 酸を結合した形をとる。",
+            "リン脂質分子の中で、リン酸部分は [] 性である。",
+            "リン脂質分子の中で、脂肪酸部分は [] 性である。",
+            "リン脂質は [] を形成して生体膜の主要な成分となる。",
+
+        ],
+        answers: ["リン", "親水", "疎水", "脂質二重層"]
+    },
+    {
+        title: "糖質 p.7",
+        text: [
+            "グルコースやガラクトースなどの [] 類のほか、オリゴ糖類がある。",
+            "また、多数の単糖類がつながった [] 類がある。貯蔵 [ 2.の答え ] のデンプンは、多くのグルコースがつながったものである。"
+        ],
+        answers: ["単糖", "多糖"]
+    },
+    {
+        title: "核酸 p.8",
+        text: [
+            "核酸には [] 核酸(DNA)とリボ核酸(RNA)の2種類がある。",
+            "DNAとRNAはどちらも基本単位の [] が多数つながった構造をしている。"
+        ],
+        answers: ["デオキシリボ", "ヌクレオチド"]
+    },
+];
+
+</script>
+
+<script src="js/transfer.js"></script>
+<script src="js/fill-in-the-blank.js"></script>
+<script src="js/zoom-image.js"></script>
+
+</body>
+</html>
