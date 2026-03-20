@@ -126,7 +126,7 @@ function checkSection(sIdx) {
         if (true) {
             resultHtml += `<li>`;
             if (question.length > 1) {
-                resultHtml += `問${sIdx + 1}-${qIdx + 1} `;
+                resultHtml += `問${sIdx + 1}-${qIdx + 1}．`;
             }
             resultHtml += `正解: <strong>${answer}</strong></li>`;
         }
